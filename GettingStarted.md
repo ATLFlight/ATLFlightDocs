@@ -1,6 +1,6 @@
 # Getting Started
 
-These instructions are for using DSPAL and DriverFramework with the Hexagon&trade; Toolchain on x86_64 Linux.
+These instructions are for using DSPAL and DriverFramework with the Hexagon Toolchain on x86_64 Linux.
 
 ## Prerequisites
 
