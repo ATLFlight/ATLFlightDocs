@@ -7,7 +7,7 @@ This guide assumes that the steps in [Getting Started](GettingStarted.md) have a
 Clone the HelloWorld project and build it
 
 ```
-host%> git clone https://github.com/ATLFlight/HelloWorld
+host%> git clone [https://github.com/ATLFlight/HelloWorld](https://github.com/ATLFlight/HelloWorld)
 host%> cd HelloWorld
 host%> make
 ```
