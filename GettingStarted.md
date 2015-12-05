@@ -83,6 +83,16 @@ export HEXAGON_SDK_ROOT=/opt/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=/opt/Qualcomm/HEXAGON_Tools/7.2.10
 ```
 
+#### If you don't have root access
+
+**NOTE:** If you do not have root access on yout machine you can run the installers without sudo and take the default install path and update the environment variables accordingly.
+
+```
+sh ./qualcomm_hexagon_sdk_2_0_eval.bin
+sh ./Hexagon.LLVM_linux_installer_7.2.10.bin
+export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
+export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10
+```
 ## All Done. What Next?
 
 You have installed all the prerequisites to build code for the Hexagon DSP. Try the [HelloWorld](HelloWorld.md)
