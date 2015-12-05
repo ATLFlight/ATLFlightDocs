@@ -68,7 +68,6 @@ installed later.
 
 ```
 sudo sh ./qualcomm_hexagon_sdk_2_0_eval.bin
-
 ```
 Install the Hexagon Tools to /opt/Qualcomm/HEXAGON_Tools. The default install path will be /root/Qualcomm/HEXAGON_Tools.
 
