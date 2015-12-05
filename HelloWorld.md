@@ -31,3 +31,12 @@ Open an new shell and run the application on the target
 host%> adb shell
 target#> /home/linaro/helloworld
 ```
+
+You should see the following output on the terminal running mini-dm:
+
+```
+DMSS is connected. Running mini-dm...
+<warnings you can ignore>
+[08500/00]  40:27.640  HAP:12365:Hello World  0006  helloworld_qurt.c
+
+```
