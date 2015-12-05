@@ -4,10 +4,10 @@ The following instructions describe how to compile and run a hello world program
 
 This guide assumes that the steps in [Getting Started](GettingStarted.md) have already been completed.
 
-Clone the HelloWorld project and build it
+Clone the [HelloWorld project](https://github.com/ATLFlight/HelloWorld) and build it
 
 ```
-host%> git clone [https://github.com/ATLFlight/HelloWorld](https://github.com/ATLFlight/HelloWorld)
+host%> git clone https://github.com/ATLFlight/HelloWorld
 host%> cd HelloWorld
 host%> make
 ```
