@@ -8,9 +8,8 @@ These instructions are for using DSPAL and DriverFramework with the Hexagon Tool
 
 You will need clang 3.4.2 or greater or GCC 4.8 or greater, and cmake 2.8 or greater.
 
-These instructions assume that you have sudo access on your machine to install the software in /opt.
-If you do not have root access you can install the files in your home directory. Instead of /opt/Qualcomm
-use ~/Qualcomm.
+These instuctions assume that you follow the default installation proceedure for the Hexagon SDK and Tools.
+The packages will be installed to ~/Qualcomm/...
 
 The top working dir is assumed to be the user home directory (~), and downloads are assumed to be in
 ~/Downloads for simplicity.
@@ -62,14 +61,15 @@ qualcomm_hexagon_sdk_2_0_eval.bin
 Hexagon.LLVM_linux_installer_7.2.10.bin 
 ```
 
-Install the Hexagon SDK to /opt/Qualcomm/Hexagon_SDK. The default install path will be /root/Qualcomm/Hexagon_SDK.
-You can unselect the install of Android NDK, Eclipse, and Hexagon Tools. The newer version of Hexagon Tools will be
-installed later.
+Install the Hexagon SDK to $HOME/Qualcomm/Hexagon_SDK. This is the default installation path.
+You can unselect the install of Android NDK, and Eclipse. This will install version 6.4.06 if the Hexagon Tools. 
+A newer version of Hexagon Tools will be installed next.
 
 ```
 sudo sh ./qualcomm_hexagon_sdk_2_0_eval.bin
 ```
-Install the Hexagon Tools to /opt/Qualcomm/HEXAGON_Tools. The default install path will be /root/Qualcomm/HEXAGON_Tools.
+
+Install the Hexagon Tools to $HOME/Qualcomm/HEXAGON_Tools. This is the default installation path.
 
 ```
 sudo sh ./Hexagon.LLVM_linux_installer_7.2.10.bin
@@ -78,8 +78,8 @@ sudo sh ./Hexagon.LLVM_linux_installer_7.2.10.bin
 Set the following environment variable to the install path:
 
 ```
-export HEXAGON_SDK_ROOT=/opt/Qualcomm/Hexagon_SDK/2.0
-export HEXAGON_TOOLS_ROOT=/opt/Qualcomm/HEXAGON_Tools/7.2.10/Tools
+export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
+export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
 
 #### If you don't have root access
