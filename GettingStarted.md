@@ -79,7 +79,7 @@ Set the following environment variable to the install path:
 
 ```
 export HEXAGON_SDK_ROOT=/opt/Qualcomm/Hexagon_SDK/2.0
-export HEXAGON_TOOLS_ROOT=/opt/Qualcomm/HEXAGON_Tools/7.2.10
+export HEXAGON_TOOLS_ROOT=/opt/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
 
 #### If you don't have root access
@@ -90,7 +90,7 @@ export HEXAGON_TOOLS_ROOT=/opt/Qualcomm/HEXAGON_Tools/7.2.10
 sh ./qualcomm_hexagon_sdk_2_0_eval.bin
 sh ./Hexagon.LLVM_linux_installer_7.2.10.bin
 export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
-export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10
+export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
 ## All Done. What Next?
 
