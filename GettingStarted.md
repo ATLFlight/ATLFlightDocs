@@ -82,16 +82,18 @@ export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
 
-#### If you don't have root access
+# Setup qaic IDL compiler
 
-**NOTE:** If you do not have root access on your machine, you can run the installers without sudo and take the default install path and update the environment variables accordingly.
+After installing the SDK, You need to set up the qaic IDL compiler.
 
 ```
-sh ./qualcomm_hexagon_sdk_2_0_eval.bin
-sh ./Hexagon.LLVM_linux_installer_7.2.10.bin
-export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
-export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
+cd ${HEXAGON_SDK_ROOT}/tools/qaic
+make
 ```
+
+This will create ${HEXAGON_SDK_ROOT}/tools/Linux/qaic compatible with your Linux version. If you omit this step,
+build rules that call qaic will fail.
+
 ## All Done. What Next?
 
 You have installed all the prerequisites to build code for the Hexagon DSP. Try the [HelloWorld](HelloWorld.md)
