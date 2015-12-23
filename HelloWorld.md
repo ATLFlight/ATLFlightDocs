@@ -16,7 +16,8 @@ Connect the target board to the host computer via the ADB usb port. Then load th
 of the HelloWorld application.
 
 ```
-host%> make load
+host%> cd build
+host%> make helloworld-load
 ```
 
 Run mini-dm to see the output from the DSP
@@ -29,7 +30,7 @@ Open an new shell and run the application on the target
 
 ```
 host%> adb shell
-target#> /home/linaro/helloworld
+target#> /home/linaro/helloworld_app
 ```
 
 You should see the following output on the terminal running mini-dm:
