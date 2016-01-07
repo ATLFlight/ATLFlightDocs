@@ -62,7 +62,7 @@ Hexagon.LLVM_linux_installer_7.2.10.bin
 ```
 
 Install the Hexagon SDK to $HOME/Qualcomm/Hexagon_SDK. This is the default installation path.
-You can unselect the install of Android NDK, and Eclipse. This will install version 6.4.06 if the Hexagon Tools. 
+You can unselect the install of Eclipse if you don't plan to use Eclipse. This will install version 6.4.06 if the Hexagon Tools. 
 A newer version of Hexagon Tools will be installed next.
 
 ```
@@ -81,18 +81,34 @@ Set the following environment variable to the install path:
 export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
+# Install the ARM cross compiler
 
-# Setup qaic IDL compiler
-
-After installing the SDK, You need to set up the qaic IDL compiler.
+The SDK expects to find the following ARM cross compler version at the extracted location:
 
 ```
-cd ${HEXAGON_SDK_ROOT}/tools/qaic
-make
+cd ${HEXAGON_SDK_ROOT}
+wget https://launchpad.net/linaro-toolchain-binaries/trunk/2013.08/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux.tar.xz
+tar xJf gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux.tar.xz
+```
+
+# Setup qaic IDL compiler, and rpcmem.h
+
+After installing the SDK, You need to set up the qaic IDL compiler and rpcmem.h which can be done by building one of the example applications..
+
+```
+cd ${HEXAGON_SDK_ROOT}
+source setup_sdk_env.sh
+cd examples/common/calculator
+make tree V=UbuntuARM_Debug
+make tree V=UbuntuARM_Release
+make tree V=hexagon_Release_dynamic_v5
+make tree V=hexagon_Debug_dynamic_v5
 ```
 
 This will create ${HEXAGON_SDK_ROOT}/tools/Linux/qaic compatible with your Linux version. If you omit this step,
 build rules that call qaic will fail.
+
+It will also create required header files in the appropriate "ship" directories.
 
 ## All Done. What Next?
 
