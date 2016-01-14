@@ -81,15 +81,6 @@ Set the following environment variable to the install path:
 export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
-# Install the ARM cross compiler
-
-The SDK expects to find the following ARM cross compler version at the extracted location:
-
-```
-cd ${HEXAGON_SDK_ROOT}
-wget https://launchpad.net/linaro-toolchain-binaries/trunk/2013.08/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux.tar.xz
-tar xJf gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux.tar.xz
-```
 
 # Setup qaic IDL compiler, and rpcmem.h
 
@@ -109,6 +100,17 @@ This will create ${HEXAGON_SDK_ROOT}/tools/Linux/qaic compatible with your Linux
 build rules that call qaic will fail.
 
 It will also create required header files in the appropriate "ship" directories.
+
+# Setup the cross build tools for building Krait/ARM apps
+
+The following will install the ARM cross compiler and the sysroot for building applications.
+
+```
+cd ~
+git clone https://github.com/ATLFlight/cross_toolchain
+cd cross_toolchain
+make
+```
 
 ## All Done. What Next?
 
