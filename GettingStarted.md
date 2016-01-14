@@ -109,7 +109,7 @@ The following will install the ARM cross compiler and the sysroot for building a
 cd ~
 git clone https://github.com/ATLFlight/cross_toolchain
 cd cross_toolchain
-make
+./install.sh
 ```
 
 ## All Done. What Next?
