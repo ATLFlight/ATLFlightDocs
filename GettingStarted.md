@@ -53,63 +53,44 @@ sudo apt-get install gcc g++ clang clang++
 
 ### Hexagon SDK and Hexagon Tools for Linux
 
-Request the access to the Hexagon SDK and Hexagon Tools from https://developer.qualcomm.com/software/hexagon-dsp-sdk/application.
-Specifically, request access to the following files for use with PX4:
-
+Clone the following:
 ```
-qualcomm_hexagon_sdk_2_0_eval.bin
-Hexagon.LLVM_linux_installer_7.2.10.bin 
+git clone https://github.com/ATLFlight/cross_toolchain
+cd cross_toolchain
 ```
 
-Install the Hexagon SDK to $HOME/Qualcomm/Hexagon_SDK. This is the default installation path.
-You can unselect the install of Eclipse if you don't plan to use Eclipse. This will install version 6.4.06 if the Hexagon Tools. 
-A newer version of Hexagon Tools will be installed next.
+Download the [Hexagon SDK 2.0 for Linux](https://developer.qualcomm.com/download/hexagon/hexagon-sdk-linux.bin). You will have to use a browser as it requires QDN registration and a click through.
+Request access to "Hexagon.LNX.7.2 Installer-07210.1.tar".
+
+Copy the files to the download dir:
+```
+cp ~/Downloads/qualcomm_hexagon_sdk_2_0_eval.bin cross_toolchain/downloads
+cp ~/Downloads/Hexagon.LNX.7.2\ Installer-07210.1.tar cross_toolchain/downloads
 
 ```
-sudo sh ./qualcomm_hexagon_sdk_2_0_eval.bin
-```
 
-Install the Hexagon Tools to $HOME/Qualcomm/HEXAGON_Tools. This is the default installation path.
+If you do not wish to use the Hexagon Tools 7.2.10 version (or if you don't have it), you can set the HEXAGON_TOOLS_ROOT to the 6.4.06 tools installed by the SDK installer. In this case you will want to leave the Hexagon Tools option enabled during the SDK install.
 
 ```
-sudo sh ./Hexagon.LLVM_linux_installer_7.2.10.bin
+export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/6.4.06
 ```
 
-Set the following environment variable to the install path:
+Otherwise, to use the Hexagon Tools 7.2.10 you can leave HEXAGON_TOOLS_ROOT unset or set it to:
+```
+export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
+```
+Now run the install script:
+```
+cd cross_toolchain
+./install.sh
+```
 
+You will need to set the following environment variables:
 ```
 export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
-```
-
-# Setup qaic IDL compiler, and rpcmem.h
-
-After installing the SDK, You need to set up the qaic IDL compiler and rpcmem.h which can be done by building one of the example applications..
-
-```
-cd ${HEXAGON_SDK_ROOT}
-source setup_sdk_env.sh
-cd examples/common/calculator
-make tree V=UbuntuARM_Debug
-make tree V=UbuntuARM_Release
-make tree V=hexagon_Release_dynamic_v5
-make tree V=hexagon_Debug_dynamic_v5
-```
-
-This will create ${HEXAGON_SDK_ROOT}/tools/Linux/qaic compatible with your Linux version. If you omit this step,
-build rules that call qaic will fail.
-
-It will also create required header files in the appropriate "ship" directories.
-
-# Setup the cross build tools for building Krait/ARM apps
-
-The following will install the ARM cross compiler and the sysroot for building applications.
-
-```
-cd ~
-git clone https://github.com/ATLFlight/cross_toolchain
-cd cross_toolchain
-./install.sh
+export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0/sysroot
+export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH
 ```
 
 ## All Done. What Next?
