@@ -6,15 +6,43 @@ These instructions are for using DSPAL and DriverFramework with the Hexagon Tool
 
 ### Linux Host Setup
 
-You will need clang 3.4.2 or greater or GCC 4.8 or greater, and cmake 2.8 or greater.
-
-These instuctions assume that you follow the default installation proceedure for the Hexagon SDK and Tools.
+These instuctions describe the default installation proceedure for the Hexagon SDK and Tools.
 The packages will be installed to ~/Qualcomm/...
 
 The top working dir is assumed to be the user home directory (~), and downloads are assumed to be in
 ~/Downloads for simplicity.
 
-#### CMake
+#### 1. Install clang 3.4.2 or greater
+
+##### Ubuntu 12.04
+
+For Ubuntu 12.04 you can use clang 3.4.2 from the LLVM downloads page:
+
+```
+wget http://llvm.org/releases/3.4.2/clang+llvm-3.4.2-x86_64-unknown-ubuntu12.04.xz
+``` 
+
+##### Ubuntu 14.04 to Ubuntu 15.10
+
+Install the system version of clang:
+
+```
+sudo apt-get install clang clang++
+```
+
+#### 2. Install GCC 4.8 or greater
+
+##### Ubuntu 14.04 to Ubuntu 15.10
+
+Install the system version of GCC:
+
+```
+sudo apt-get install gcc g++
+```
+
+#### 3. Install CMake 2.8 or greater
+
+##### CMake
 
 You can get the latest version of cmake from the website:
 
@@ -36,22 +64,8 @@ fi
 export PATH=$PATH
 ```
 
-#### Ubuntu 12.04
-For Ubuntu 12.04 you can use clang 3.4.2 from the LLVM downloads page:
 
-```
-wget http://llvm.org/releases/3.4.2/clang+llvm-3.4.2-x86_64-unknown-ubuntu12.04.xz
-```
-#### 
-
-#### Ubuntu 14.04 to Ubuntu 15.10
-Install the system version of clang and/or GCC:
-
-```
-sudo apt-get install gcc g++ clang clang++
-```
-
-### Hexagon SDK and Hexagon Tools for Linux
+#### Hexagon SDK and Hexagon Tools for Linux
 
 Clone the following:
 ```
@@ -85,7 +99,7 @@ cd cross_toolchain
 ./install.sh
 ```
 
-You will need to set the following environment variables:
+The script will prompt you to set the following environment variables:
 ```
 export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
@@ -97,4 +111,3 @@ export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux
 
 You have installed all the prerequisites to build code for the Hexagon DSP. Try the [HelloWorld](HelloWorld.md)
 program to test running a program on the DSP.
-
