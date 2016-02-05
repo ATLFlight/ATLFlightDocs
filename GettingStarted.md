@@ -6,17 +6,45 @@ These instructions are for using DSPAL and DriverFramework with the Hexagon Tool
 
 ### Linux Host Setup
 
-You will need clang 3.4.2 or greater or GCC 4.8 or greater, and cmake 2.8 or greater. 
-NOTE: cmake 3.4.0 is known to have bugs and does not work, use 3.4.3 instead.
-
-These instuctions assume that you follow the default installation proceedure for the Hexagon SDK and Tools.
+These instuctions describe the default installation proceedure for the Hexagon SDK and Tools.
 The packages will be installed to ~/Qualcomm/...
 
 The top working dir is assumed to be the user home directory (~), and downloads are assumed to be in
 ~/Downloads for simplicity.
 
-#### CMake
+#### 1. Install clang 3.4.2 or greater
 
+##### Ubuntu 12.04
+
+For Ubuntu 12.04 you can use clang 3.4.2 from the LLVM downloads page:
+
+```
+wget http://llvm.org/releases/3.4.2/clang+llvm-3.4.2-x86_64-unknown-ubuntu12.04.xz
+``` 
+
+##### Ubuntu 14.04 to Ubuntu 15.10
+
+Install the system version of clang:
+
+```
+sudo apt-get install clang clang++
+```
+
+#### 2. Install GCC 4.8 or greater
+
+##### Ubuntu 14.04 to Ubuntu 15.10
+
+Install the system version of GCC:
+
+```
+sudo apt-get install gcc g++
+```
+
+#### 3. Install CMake 2.8 or greater
+
+##### CMake
+
+##### Ubuntu 12.04
 You can get the latest version of cmake from the website:
 
 ```
@@ -31,28 +59,20 @@ Add the following to your .bashrc or equivalent for your preferred shell so the 
 updated automatically.
 
 ```
-if [ "x`echo $PATH | grep '/opt/cmake-3.4.3/bin'`" = "x" ]; then
+if [ `echo $PATH | grep '/opt/cmake-3.4.3/bin'` ]; then
   PATH=$PATH:/opt/cmake-3.4.3/bin
 fi
 export PATH=$PATH
 ```
 
-#### Ubuntu 12.04
-For Ubuntu 12.04 you can use clang 3.4.2 from the LLVM downloads page:
-
+##### Ubuntu 14.04
 ```
-wget http://llvm.org/releases/3.4.2/clang+llvm-3.4.2-x86_64-unknown-ubuntu12.04.xz
-```
-#### 
-
-#### Ubuntu 14.04 to Ubuntu 15.10
-Install the system version of clang and/or GCC:
-
-```
-sudo apt-get install gcc g++ clang clang++
+cd ~/Downloads
+wget https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.sh
+sudo tar -zxvf cmake-3.4.0-Linux-x86_64.tar.gz -C /opt
 ```
 
-### Hexagon SDK and Hexagon Tools for Linux
+#### Hexagon SDK and Hexagon Tools for Linux
 
 Clone the following:
 ```
@@ -86,7 +106,7 @@ cd cross_toolchain
 ./install.sh
 ```
 
-You will need to set the following environment variables:
+The script will prompt you to set the following environment variables:
 ```
 export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
@@ -94,8 +114,14 @@ export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0/sysroot
 export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH
 ```
 
+To prevent the path from having multiple versions of the ARM cross compiler path you can do:
+
+```
+[ `echo PATH | grep gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin`' ] || \
+ 	export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH
+```
+
 ## All Done. What Next?
 
 You have installed all the prerequisites to build code for the Hexagon DSP. Try the [HelloWorld](HelloWorld.md)
 program to test running a program on the DSP.
-

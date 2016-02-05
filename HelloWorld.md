@@ -11,10 +11,18 @@ host%> git clone https://github.com/ATLFlight/HelloWorld
 host%> cd HelloWorld
 host%> make
 ```
+Connect the device via ADB and make sure it can be found.
+```
+adb devices
+```
+You should see something like:
+```
+$ adb devices
+List of devices attached 
+997e5d3a	device
+```
 
-Connect the target board to the host computer via the ADB usb port. Then load the ARM and DSP portions
-of the HelloWorld application.
-
+Then load the ARM and DSP portions of the HelloWorld application.
 ```
 host%> cd build
 host%> make helloworld-load
