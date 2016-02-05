@@ -100,7 +100,9 @@ Otherwise, to use the Hexagon Tools 7.2.10 you can leave HEXAGON_TOOLS_ROOT unse
 ```
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
-Now run the install script:
+Now run the install script.
+NOTE: 
+You can un-check all 3 add-on options (Android NDK, Eclipse, Hexagon Tools) in the installer screen
 ```
 cd cross_toolchain
 ./install.sh
