@@ -44,6 +44,7 @@ sudo apt-get install gcc g++
 
 ##### CMake
 
+##### Ubuntu 12.04
 You can get the latest version of cmake from the website:
 
 ```
@@ -64,6 +65,12 @@ fi
 export PATH=$PATH
 ```
 
+##### Ubuntu 14.04
+```
+cd ~/Downloads
+wget https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.sh
+sudo tar -zxvf cmake-3.4.0-Linux-x86_64.tar.gz -C /opt
+```
 
 #### Hexagon SDK and Hexagon Tools for Linux
 
