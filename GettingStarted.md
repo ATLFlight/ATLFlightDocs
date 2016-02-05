@@ -49,18 +49,18 @@ You can get the latest version of cmake from the website:
 
 ```
 cd ~/Downloads
-wget https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.sh
-sudo mkdir /opt/cmake-3.4.0
-sudo sh ./cmake-3.4.0-Linux-x86_64.sh --prefix=/opt/cmake-3.4.0 --exclude-subdir
-export PATH=/opt/cmake-3.4.0/bin:${PATH}
+wget https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.sh
+sudo mkdir /opt/cmake-3.4.3
+sudo sh ./cmake-3.4.3-Linux-x86_64.sh --prefix=/opt/cmake-3.4.3 --exclude-subdir
+export PATH=/opt/cmake-3.4.3/bin:${PATH}
 ```
 
 Add the following to your .bashrc or equivalent for your preferred shell so the path is
 updated automatically.
 
 ```
-if [ "x`echo $PATH | grep '/opt/cmake-3.4.0/bin'`" = "x" ]; then
-  PATH=$PATH:/opt/cmake-3.4.0/bin
+if [ `echo $PATH | grep '/opt/cmake-3.4.3/bin'` ]; then
+  PATH=$PATH:/opt/cmake-3.4.3/bin
 fi
 export PATH=$PATH
 ```
@@ -112,6 +112,13 @@ export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0/sysroot
 export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH
+```
+
+To prevent the path from having multiple versions of the ARM cross compiler path you can do:
+
+```
+[ `echo PATH | grep gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin`' ] || \
+ 	export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH
 ```
 
 ## All Done. What Next?
