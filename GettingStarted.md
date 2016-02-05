@@ -6,7 +6,8 @@ These instructions are for using DSPAL and DriverFramework with the Hexagon Tool
 
 ### Linux Host Setup
 
-You will need clang 3.4.2 or greater or GCC 4.8 or greater, and cmake 2.8 or greater.
+You will need clang 3.4.2 or greater or GCC 4.8 or greater, and cmake 2.8 or greater. 
+NOTE: cmake 3.4.0 is known to have bugs and does not work, use 3.4.3 instead.
 
 These instuctions assume that you follow the default installation proceedure for the Hexagon SDK and Tools.
 The packages will be installed to ~/Qualcomm/...
@@ -20,18 +21,18 @@ You can get the latest version of cmake from the website:
 
 ```
 cd ~/Downloads
-wget https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.sh
-sudo mkdir /opt/cmake-3.4.0
-sudo sh ./cmake-3.4.0-Linux-x86_64.sh --prefix=/opt/cmake-3.4.0 --exclude-subdir
-export PATH=/opt/cmake-3.4.0/bin:${PATH}
+wget https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.sh
+sudo mkdir /opt/cmake-3.4.3
+sudo sh ./cmake-3.4.3-Linux-x86_64.sh --prefix=/opt/cmake-3.4.3 --exclude-subdir
+export PATH=/opt/cmake-3.4.3/bin:${PATH}
 ```
 
 Add the following to your .bashrc or equivalent for your preferred shell so the path is
 updated automatically.
 
 ```
-if [ "x`echo $PATH | grep '/opt/cmake-3.4.0/bin'`" = "x" ]; then
-  PATH=$PATH:/opt/cmake-3.4.0/bin
+if [ "x`echo $PATH | grep '/opt/cmake-3.4.3/bin'`" = "x" ]; then
+  PATH=$PATH:/opt/cmake-3.4.3/bin
 fi
 export PATH=$PATH
 ```
