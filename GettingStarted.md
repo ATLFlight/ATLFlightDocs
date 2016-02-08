@@ -68,8 +68,18 @@ export PATH=$PATH
 ##### Ubuntu 14.04
 ```
 cd ~/Downloads
-wget https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.sh
-sudo tar -zxvf cmake-3.4.0-Linux-x86_64.tar.gz -C /opt
+wget https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.sh
+sudo tar -zxvf cmake-3.4.3-Linux-x86_64.tar.gz -C /opt
+```
+
+Add the following to your .bashrc or equivalent for your preferred shell so the path is
+updated automatically.
+
+```
+if [ "x`echo $PATH | grep '/opt/cmake-3.4.3-Linux-x86_64/bin'`" = "x" ]; then
+  PATH=$PATH:/opt/cmake-3.4.3-Linux-x86_64/bin
+fi
+export PATH=$PATH
 ```
 
 #### Hexagon SDK and Hexagon Tools for Linux
@@ -100,7 +110,8 @@ Otherwise, to use the Hexagon Tools 7.2.10 you can leave HEXAGON_TOOLS_ROOT unse
 ```
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
-Now run the install script:
+Now run the install script. This will pop up a GUI that will walk you through the steps of installing the SDK.
+NOTE:  If you are using Hexagon Tools 7.2.10, You can un-check all 3 add-on options (Android NDK, Eclipse, Hexagon Tools) in the installer screen. If you need to download version 6.4.06, keep that option selected to download it.
 ```
 cd cross_toolchain
 ./install.sh
