@@ -68,8 +68,18 @@ export PATH=$PATH
 ##### Ubuntu 14.04
 ```
 cd ~/Downloads
-wget https://cmake.org/files/v3.4/cmake-3.4.0-Linux-x86_64.sh
-sudo tar -zxvf cmake-3.4.0-Linux-x86_64.tar.gz -C /opt
+wget https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.sh
+sudo tar -zxvf cmake-3.4.3-Linux-x86_64.tar.gz -C /opt
+```
+
+Add the following to your .bashrc or equivalent for your preferred shell so the path is
+updated automatically.
+
+```
+if [ "x`echo $PATH | grep '/opt/cmake-3.4.3-Linux-x86_64/bin'`" = "x" ]; then
+  PATH=$PATH:/opt/cmake-3.4.3-Linux-x86_64/bin
+fi
+export PATH=$PATH
 ```
 
 #### Hexagon SDK and Hexagon Tools for Linux
