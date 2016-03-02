@@ -37,7 +37,9 @@ Run mini-dm to see the output from the DSP
 host%> ${HEXAGON_SDK_ROOT}/tools/mini-dm/Linux_Debug/mini-dm
 ```
 
-Open an new shell and run the application on the target
+Open an new shell and run the application on the target. Note that when using
+QURT_BUNDLE, the apps proc app has "\_app" appended to differentiate the
+helloworld library and the helloworld app, otherwise cmake is confused.
 
 ```
 host%> adb shell
@@ -85,7 +87,7 @@ Open an new shell and run the application on the target
 
 ```
 host%> adb shell
-target#> /home/linaro/helloworld_app
+target#> /home/linaro/helloworld
 ```
 
 You should see the following output on the terminal running mini-dm:
