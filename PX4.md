@@ -1,6 +1,6 @@
 # PX4
 
-# Prerequisites
+## Prerequisites
 
 To build the PX4 flight stack for Snapdragon Flight, you need to set up the build environment as described in [GettingStarted](GettingStarted.md).
 You can optionally build and run [HelloWorld](https://github.com/ATLFlight/ATLFlightDocs/blob/master/HelloWorld.md) to test your setup.
