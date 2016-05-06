@@ -12,58 +12,21 @@ The packages will be installed to ~/Qualcomm/...
 The top working dir is assumed to be the user home directory (~), and downloads are assumed to be in
 ~/Downloads for simplicity.
 
-#### 1. Install clang 3.4.2 or greater
+#### 1. Install clang 3.4.2 or greater, and GCC 4.8 or greater
 
-##### Ubuntu 12.04
-
-For Ubuntu 12.04 you can use clang 3.4.2 from the LLVM downloads page:
-
-```
-wget http://llvm.org/releases/3.4.2/clang+llvm-3.4.2-x86_64-unknown-ubuntu12.04.xz
-``` 
-
-##### Ubuntu 14.04 to Ubuntu 15.10
+##### Ubuntu 14.04 to Ubuntu 16.04
 
 Install the system version of clang:
 
 ```
-sudo apt-get install clang clang++
+sudo apt-get install clang clang++ gcc g++
 ```
 
-#### 2. Install GCC 4.8 or greater
+#### 2. Install CMake 3.4.3 or greater
 
-##### Ubuntu 14.04 to Ubuntu 15.10
-
-Install the system version of GCC:
-
-```
-sudo apt-get install gcc g++
-```
-
-#### 3. Install CMake 2.8 or greater
+Do not use cmake 3.4.0. It is known to have issues that break the PX4 build. Later versions (3.4.3+) are fine.
 
 ##### CMake
-
-##### Ubuntu 12.04
-You can get the latest version of cmake from the website:
-
-```
-cd ~/Downloads
-wget https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.sh
-sudo mkdir /opt/cmake-3.4.3
-sudo sh ./cmake-3.4.3-Linux-x86_64.sh --prefix=/opt/cmake-3.4.3 --exclude-subdir
-export PATH=/opt/cmake-3.4.3/bin:${PATH}
-```
-
-Add the following to your .bashrc or equivalent for your preferred shell so the path is
-updated automatically.
-
-```
-if [ `echo $PATH | grep '/opt/cmake-3.4.3/bin'` ]; then
-  PATH=$PATH:/opt/cmake-3.4.3/bin
-fi
-export PATH=$PATH
-```
 
 ##### Ubuntu 14.04
 ```
@@ -82,7 +45,14 @@ fi
 export PATH=$PATH
 ```
 
-#### Hexagon SDK and Hexagon Tools for Linux
+##### Ubuntu 15.10 to Ubuntu 16.04
+
+Install the system version of cmake:
+
+```
+sudo apt-get install cmake
+```
+#### 3. Hexagon SDK and Hexagon Tools for Linux
 
 Clone the following:
 ```
