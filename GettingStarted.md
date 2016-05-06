@@ -16,7 +16,7 @@ The top working dir is assumed to be the user home directory (~), and downloads 
 
 ##### Ubuntu 14.04 to Ubuntu 16.04
 
-Install the system version of clang:
+Install the system version of clang and gcc:
 
 ```
 sudo apt-get install clang clang++ gcc g++
