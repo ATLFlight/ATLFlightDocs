@@ -100,18 +100,12 @@ cp ~/Downloads/Hexagon.LNX.7.2\ Installer-07210.1.tar cross_toolchain/downloads
 
 ```
 
-If you do not wish to use the Hexagon Tools 7.2.10 version (or if you don't have it), you can set the HEXAGON_TOOLS_ROOT to the 6.4.06 tools installed by the SDK installer. In this case you will want to leave the Hexagon Tools option enabled during the SDK install.
-
-```
-export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/6.4.06
-```
-
-Otherwise, to use the Hexagon Tools 7.2.10 you can leave HEXAGON_TOOLS_ROOT unset or set it to:
+To use the Hexagon Tools 7.2.10 you can leave HEXAGON_TOOLS_ROOT unset or set it to:
 ```
 export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
 ```
 Now run the install script. This will pop up a GUI that will walk you through the steps of installing the SDK.
-NOTE:  If you are using Hexagon Tools 7.2.10, You can un-check all 3 add-on options (Android NDK, Eclipse, Hexagon Tools) in the installer screen. If you need to download version 6.4.06, keep that option selected to download it.
+NOTE:  Since you are using Hexagon Tools 7.2.10, you can un-check all 3 add-on options (Android NDK, Eclipse, Hexagon Tools) in the installer screen.
 ```
 cd cross_toolchain
 ./install.sh
