@@ -26,8 +26,7 @@ adb push ./build_qurt_eagle_default/src/firmware/qurt/libpx4muorb_skel.so /usr/s
 
 ## Building PX4 with the FC_ADDON drivers
 
-The FC_ADDON contains generic proprietary drivers for the mpu9x50, rc_receiver, and uart_esc. The upstream PX4 project contains wrappers for these drivers
-for use by PX4.
+The FC_ADDON contains generic proprietary drivers for the rc_receiver and uart_esc. The upstream PX4 project contains wrappers for these drivers for use by PX4.
 
 Login to the Intrinsyc website and download the fc_addon.
 The Flight Controller AddOn for Snapdragon Flight provides some driver binaries that require wrappers for use with PX4. This repository contains these driver wrappers.
@@ -73,8 +72,8 @@ Where <sub-directory> refers to the platform or use-case such as:
 Install the configuration files as follows:
 ```
 cd Firmware
-adb push ./posix-configs/eagle/flight/px4-flight.config /usr/share/data/adsp/px4.config
-adb push ./posix-configs/eagle/flight/mainapp-flight.config /home/linaro/mainapp.config
+adb push ./posix-configs/eagle/flight/px4.config /usr/share/data/adsp/px4.config
+adb push ./posix-configs/eagle/flight/mainapp.config /home/linaro/mainapp.config
 ```
 
 *NOTE:* The steps above installed the flight config files for a generic flight platform. Please modify the source path and file names based on your platform or use-case.
@@ -112,8 +111,9 @@ Only the following modes / configurations / tools have been tested and therefore
 - Quadcopter X airframes
 - QGroundControl 2.7.1 (available [here](https://github.com/mavlink/qgroundcontrol/releases/tag/v2.7.1))
 
-The following modes are not functional:
+The following are not functional:
 - HITL / HIL mode
+- Accelerometer calibration through the QGroundControl user interface
 
 ## More Information
 - Running the mini-dm logging tool: http://dev.px4.io/starting-building.html#run-it
