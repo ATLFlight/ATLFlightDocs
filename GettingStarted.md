@@ -52,7 +52,7 @@ Install the system version of cmake:
 ```
 sudo apt-get install cmake
 ```
-#### 3. Hexagon SDK and Hexagon Tools for Linux
+#### Hexagon SDK 3.0
 
 Clone the following:
 ```
@@ -60,41 +60,54 @@ git clone https://github.com/ATLFlight/cross_toolchain
 cd cross_toolchain
 ```
 
-Download the [Hexagon SDK 2.0 for Linux](https://developer.qualcomm.com/download/hexagon/hexagon-sdk-linux.bin). You will have to use a browser as it requires QDN registration and a click through.
-Request access to "Hexagon.LNX.7.2 Installer-07210.1.tar".
+Download the [Hexagon SDK 3.0 for Linux](https://developer.qualcomm.com/download/hexagon/hexagon-sdk-v3-linux.bin). You will have to use a browser as it requires QDN registration and a click through.
 
 Copy the files to the download dir:
 ```
-cp ~/Downloads/qualcomm_hexagon_sdk_2_0_eval.bin cross_toolchain/downloads
-cp ~/Downloads/Hexagon.LNX.7.2\ Installer-07210.1.tar cross_toolchain/downloads
-
+cp ~/Downloads/hexagon-sdk-v3-linux.bin cross_toolchain/downloads
 ```
 
-To use the Hexagon Tools 7.2.10 you can leave HEXAGON_TOOLS_ROOT unset or set it to:
-```
-export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
-```
-Now run the install script. This will pop up a GUI that will walk you through the steps of installing the SDK.
-NOTE:  Since you are using Hexagon Tools 7.2.10, you can un-check all 3 add-on options (Android NDK, Eclipse, Hexagon Tools) in the installer screen.
+Now run the install script:
 ```
 cd cross_toolchain
-./install.sh
+./installv3.sh
 ```
 
 The script will prompt you to set the following environment variables:
 ```
-export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0
-export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.10/Tools
-export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/Hexagon_SDK/2.0/sysroot
-export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH
+export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/3.0
+export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
+export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
 ```
 
 To prevent the path from having multiple versions of the ARM cross compiler path you can do:
 
 ```
-[ `echo PATH | grep gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin`' ] || \
- 	export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-arm-linux-gnueabihf-4.8-2013.08_linux/bin:$PATH
+[ `echo PATH | grep gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin`' ] || \
+ 	export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
 ```
+
+### Set up the Sysroot
+
+A sysroot is required to provide the libraries and header files needed to cross compile applications for
+the Snapdragon Flight applications processor.
+
+Login to the Intrinsyc support page and download: http://support.intrinsyc.com/attachments/download/483/Flight_qrlSDK.zip
+
+copy/move the file to the ./download directory
+
+```
+cp ~/Downloads/Flight_qrlSDK.zip ./downloads
+./qrlinux_sysroot.sh --clean
+```
+
+Set the following environment variable:
+
+```
+export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v1.0_sysroot
+```
+
+For more sysroot options see [Sysroot Installation](https://github.com/ATLFlight/cross_toolchain/blob/sdk3/README.md#sysroot-installation)
 
 ## All Done. What Next?
 
