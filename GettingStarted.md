@@ -57,7 +57,6 @@ sudo apt-get install cmake
 Clone the following:
 ```
 git clone https://github.com/ATLFlight/cross_toolchain
-cd cross_toolchain
 ```
 
 Download the [Hexagon SDK 3.0 for Linux](https://developer.qualcomm.com/download/hexagon/hexagon-sdk-v3-linux.bin). You will have to use a browser as it requires QDN registration and a click through.
