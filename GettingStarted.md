@@ -72,10 +72,10 @@ cd cross_toolchain
 ./installv3.sh
 ```
 
-The script will prompt you to set the following environment variables:
+The script will prompt you to optionally update the default installation path ${HEXAGON_INSTALL_HOME} and then set the following environment variables after the installation:
 ```
-export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/3.0
-export HEXAGON_TOOLS_ROOT=${HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
+export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
+export HEXAGON_TOOLS_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
 export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
 ```
 
