@@ -1,7 +1,7 @@
 # DSPAL
 
 The DSP Abstraction Layer (DSPAL) provides a mostly POSIX compliant
-interface to ease the porting of code from Linux or another posix
+interface to ease the porting of code from Linux or another POSIX
 compliant OS to the Hexagon DSP.
 
 ## Using DSPAL
