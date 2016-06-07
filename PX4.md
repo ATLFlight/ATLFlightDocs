@@ -29,7 +29,7 @@ adb push ./build_qurt_eagle_default/src/firmware/qurt/libpx4muorb_skel.so /usr/s
 
 The FC_ADDON contains generic proprietary drivers for the rc_receiver and uart_esc. The upstream PX4 project contains wrappers for these drivers for use by PX4.
 
-Login to the Intrinsyc support website and download the latest flight controller addon. The Flight Controller AddOn for Snapdragon Flight provides some driver binaries that require wrappers for use with PX4. This repository contains these driver wrappers.
+Login to the Intrinsyc support website and download the latest Flight Controller AddOn. The Flight Controller AddOn for Snapdragon Flight provides some driver binaries that require wrappers for use with PX4. This repository contains these driver wrappers.
 
 Following these instructions to build the PX4 flight code for Snapdragon Flight using the driver binaries provided by Qualcomm.
 
@@ -70,7 +70,7 @@ Where <sub-directory> refers to the platform or use-case such as:
 - flight: Configuration files for a generic flight platform
 - 200qx: Configuration files customized for the Microheli 200 MM flight platform
 
-Install the configuration files as follows:
+Install the configuration files:
 ```
 cd Firmware
 adb push ./posix-configs/eagle/flight/px4.config /usr/share/data/adsp/px4.config
@@ -79,13 +79,18 @@ adb push ./posix-configs/eagle/flight/mainapp.config /home/linaro/mainapp.config
 
 *NOTE:* The steps above installed the flight config files for a generic flight platform. Please modify the source path and file names based on your platform or use-case.
 
-Install the drivers and binaries as follows:
+Install the PX4 binaries:
 ```
 cd Firmware
 adb push ./build_posix_eagle_legacy_driver_default/src/firmware/posix/mainapp /home/linaro
 adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libmainapp.so /usr/share/data/adsp
 adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libpx4muorb_skel.so /usr/share/data/adsp
+```
+
+Install the aDSP static image and drivers from the Flight Controller AddOn:
+```
 adb push ${FC_ADDON}/flight_controller/hexagon/libs/. /usr/share/data/adsp
+adb push ${FC_ADDON}/images/8074-eagle/normal/adsp_proc/obj/qdsp6v5_ReleaseG/LA/system/etc/firmware/. /lib/firmware
 ```
 
 ## Execution
@@ -129,4 +134,3 @@ The following are not functional:
 - Troubleshooting: http://dev.px4.io/advanced-snapdragon.html
 - PX4 User Guide: http://px4.io/user-guide
 - PX4 Developer Guide: http://dev.px4.io
-
