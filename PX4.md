@@ -1,5 +1,7 @@
 # PX4
 
+This document describes the build and execution procedure for PX4 flight software on the [Snapdragon Flight](https://www.intrinsyc.com/vertical-development-platforms/qualcomm-snapdragon-flight) platform using drivers provided by Qualcomm.
+
 ## Prerequisites
 
 To build the PX4 flight stack for Snapdragon Flight, you need to set up the build environment as described in [GettingStarted](GettingStarted.md).
@@ -14,8 +16,7 @@ The build should be as simple as:
 git clone https://github.com/PX4/Firmware
 cd Firmware
 git submodule update --init --recursive
-make qurt_eagle_default
-make posix_eagle_default
+make eagle_default
 ```
 Load the code on the device
 ```
@@ -28,8 +29,7 @@ adb push ./build_qurt_eagle_default/src/firmware/qurt/libpx4muorb_skel.so /usr/s
 
 The FC_ADDON contains generic proprietary drivers for the rc_receiver and uart_esc. The upstream PX4 project contains wrappers for these drivers for use by PX4.
 
-Login to the Intrinsyc website and download the fc_addon.
-The Flight Controller AddOn for Snapdragon Flight provides some driver binaries that require wrappers for use with PX4. This repository contains these driver wrappers.
+Login to the Intrinsyc support website and download the latest flight controller addon. The Flight Controller AddOn for Snapdragon Flight provides some driver binaries that require wrappers for use with PX4. This repository contains these driver wrappers.
 
 Following these instructions to build the PX4 flight code for Snapdragon Flight using the driver binaries provided by Qualcomm.
 
@@ -37,23 +37,24 @@ Following these instructions to build the PX4 flight code for Snapdragon Flight 
 
 Follow the instructions [here](https://github.com/ATLFlight/ATLFlightDocs) to install the tools, setup the environment variables.
 
-Obtain the Flight Controller AddOn file (qcom_flight_controller_*.zip). The latest version is available from Intrinsyc at http://support.intrinsyc.com/projects/snapdragon-flight/files. Download and extract it to any location on your linux PC. The environment variable FC_ADDON needs to point to the location of the Snapdragon Flight addon.
+Obtain the Flight Controller AddOn file (qcom_flight_controller_*.zip). The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files). Download and extract it to any location on your linux PC. The environment variable FC_ADDON needs to point to the location of the Snapdragon Flight addon.
 
 To use these with PX4, do the following:
 
 ```
 git clone https://github.com/PX4/Firmware
 cd Firmware
+git checkout tags/<stable_release_tag_name>
 git submodule update --init --recursive
 export FC_ADDON=<location-of-extracted-flight-controller-addon>
 ```
+*NOTE:* Substitute \<stable_release_tag_name\> with the latest tag from the *Stable Releases* section on this page.
 
 ### Building the Code
 The commands below build the targets for the DSP and the Linux side. Both executables communicate via muORB.
 ```
 cd Firmware
-make qurt_eagle_legacy_driver_default
-make posix_eagle_legacy_driver_default
+make eagle_legacy_default
 ```
 
 ### Installation on Target
@@ -103,7 +104,14 @@ muorb stop
 shutdown
 ```
 
+## Stable Releases
+Following are the git tags corresponding to stable releases:
+- EAGLE_DRONE_1.1_PCS_0 (June 6, 2016)
+
 ## Known Issues and Limitations
+
+*NOTE:* This section is applicable to the latest stable release only.
+
 Only the following modes / configurations / tools have been tested and therefore supported:
 - Flight modes
   - MANUAL (Angle) mode
