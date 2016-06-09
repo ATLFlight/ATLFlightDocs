@@ -95,8 +95,10 @@ __NOTE__: The qrlSDK sysroot is currently unavailable from Intrinsyc so please u
 
 #### Create the stock Ubuntu Trusty (14.04) sysroot
 
+```
 export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/3.0
 ./trusty_sysroot.sh
+```
 This will install:
 
 ARMv7hf Ubuntu Trusty (14.04) sysroot [HEXAGON_ARM_SYSROOT]: ${HOME}/Qualcomm/ubuntu_14.04_armv7_sysroot
