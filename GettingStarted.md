@@ -91,23 +91,20 @@ To prevent the path from having multiple versions of the ARM cross compiler path
 A sysroot is required to provide the libraries and header files needed to cross compile applications for
 the Snapdragon Flight applications processor.
 
-Login to the Intrinsyc support page and download: http://support.intrinsyc.com/attachments/download/483/Flight_qrlSDK.zip
+__NOTE__: The qrlSDK sysroot is currently unavailable from Intrinsyc so please use the stock Ubuntu 14.04 sysroot (Trusty).
 
-copy/move the file to the ./download directory
+#### Create the stock Ubuntu Trusty (14.04) sysroot
 
+export HEXAGON_SDK_ROOT=${HOME}/Qualcomm/Hexagon_SDK/3.0
+./trusty_sysroot.sh
+This will install:
+
+ARMv7hf Ubuntu Trusty (14.04) sysroot [HEXAGON_ARM_SYSROOT]: ${HOME}/Qualcomm/ubuntu_14.04_armv7_sysroot
+
+Make sure to set the environment variable:
 ```
-cp ~/Downloads/Flight_qrlSDK.zip ./downloads
-./qrlinux_sysroot.sh --clean
+export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/ubuntu_14.04_armv7_sysroot
 ```
-
-Set the following environment variable:
-
-```
-export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v1.0_sysroot
-```
-
-For more sysroot options see [Sysroot Installation](https://github.com/ATLFlight/cross_toolchain/blob/sdk3/README.md#sysroot-installation)
-
 ## All Done. What Next?
 
 You have installed all the prerequisites to build code for the Hexagon DSP. Try the [HelloWorld](HelloWorld.md)
