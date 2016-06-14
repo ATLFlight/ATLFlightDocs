@@ -59,7 +59,7 @@ Clone the following:
 git clone https://github.com/ATLFlight/cross_toolchain
 ```
 
-Download the [Hexagon SDK 3.0 for Linux](https://developer.qualcomm.com/download/hexagon/qualcomm_hexagon_sdk_lnx_3_0_eval.bin). You will have to use a browser as it requires QDN registration and a click through.
+Download the [Hexagon SDK 3.0 for Linux](https://developer.qualcomm.com/download/hexagon/hexagon-sdk-v3-linux.bin). You will have to use a browser as it requires QDN registration and a click through.
 
 Copy the files to the download dir:
 ```
