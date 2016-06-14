@@ -63,7 +63,8 @@ Download the [Hexagon SDK 3.0 for Linux](https://developer.qualcomm.com/download
 
 Copy the files to the download dir:
 ```
-cp ~/Downloads/hexagon-sdk-v3-linux.bin cross_toolchain/downloads
+cp ~/Downloads/{name of file downloaded, eg. qualcomm_hexagon_sdk_lnx_3_0_eval.bin} cross_toolchain/downloads
+chmod a+x {name of file downloaded}
 ```
 
 Now run the install script:
