@@ -42,7 +42,7 @@ Obtain the Flight Controller AddOn file (qcom_flight_controller_*.zip). The late
 To use these with PX4, do the following:
 
 ```
-git clone https://github.com/PX4/Firmware
+git clone https://github.com/ATLFlight/Firmware
 cd Firmware
 git checkout tags/<stable_release_tag_name>
 git submodule update --init --recursive
