@@ -112,6 +112,7 @@ shutdown
 ## Stable Releases
 Following are the git tags corresponding to stable releases:
 - EAGLE_DRONE_1.1_PCS_0 (June 6, 2016)
+- EAGLE_DRONE_1.1_PCS_1 (June 28, 2016)
 
 ## Known Issues and Limitations
 
