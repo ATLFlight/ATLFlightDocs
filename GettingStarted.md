@@ -32,7 +32,8 @@ Do not use cmake 3.4.0. It is known to have issues that break the PX4 build. Lat
 ```
 cd ~/Downloads
 wget https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.sh
-sudo tar -zxvf cmake-3.4.3-Linux-x86_64.tar.gz -C /opt
+chmod a+x cmake-3.4.3-Linux-x86_64.sh
+./cmake-3.4.3-Linux-x86_64.sh
 ```
 
 Add the following to your .bashrc or equivalent for your preferred shell so the path is
