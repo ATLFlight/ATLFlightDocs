@@ -53,7 +53,7 @@ Install the system version of cmake:
 sudo apt-get install cmake
 ```
 
-#### 2. Install other packages
+#### 3. Install other packages
 
 ```
 sudo apt-get install python-empy
