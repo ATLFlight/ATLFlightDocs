@@ -52,6 +52,15 @@ Install the system version of cmake:
 ```
 sudo apt-get install cmake
 ```
+
+#### 3. Install other packages
+
+```
+sudo apt-get install python-empy
+sudo apt-get install python-pip
+sudo pip install catkin_pkg
+```
+
 #### Hexagon SDK 3.0
 
 Clone the following:
