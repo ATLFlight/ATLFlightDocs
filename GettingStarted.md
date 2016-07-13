@@ -34,6 +34,7 @@ cd ~/Downloads
 wget https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.sh
 chmod a+x cmake-3.4.3-Linux-x86_64.sh
 ./cmake-3.4.3-Linux-x86_64.sh
+sudo mv cmake-3.4.3-Linux-x86_64.sh /opt
 ```
 
 Add the following to your .bashrc or equivalent for your preferred shell so the path is
