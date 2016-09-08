@@ -31,7 +31,7 @@ Following these instructions to build the PX4 flight code for Snapdragon Flight 
 
 Follow the instructions [here](https://github.com/ATLFlight/ATLFlightDocs) to install the tools, setup the environment variables.
 
-Obtain the Flight Controller AddOn file (*_qcom_flight_controller_*.zip). The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files). Download and extract it to any location on your linux PC. The environment variable FC_ADDON needs to point to the location of the extracted Snapdragon Flight Controller addon.
+Obtain the Flight Controller AddOn file (\*\_qcom_flight_controller\_\*.zip). The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files). Download and extract it to any location on your linux PC. The environment variable FC_ADDON needs to point to the location of the extracted Snapdragon Flight Controller addon.
 
 To use these with PX4, do the following:
 
