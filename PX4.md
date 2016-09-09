@@ -119,7 +119,6 @@ Only the following modes / configurations / tools have been tested and therefore
   - MANUAL (Angle) mode
   - ATLCTL mode
 - Quadcopter X airframes
-- QGroundControl 2.7.1 (available [here](https://github.com/mavlink/qgroundcontrol/releases/tag/v2.7.1))
 
 The following are not functional:
 - HITL / HIL mode
