@@ -110,6 +110,8 @@ Following are the git tags corresponding to stable releases:
 - EAGLE_DRONE_1.2_ES2_0 (July 12, 2016)
 - EAGLE_DRONES_1.2_FC_0 (September 8, 2016)
 
+NOTE: The latest tag above is compatible/tested with platform software version 3.1.1_BSP and flight controller addon version 3.1.1a available from Intrinsyc [here](http://support.intrinsyc.com/projects/snapdragon-flight/files). Follow the instructions in the readme file therein to complete the installation.
+
 ## Known Issues and Limitations
 
 *NOTE:* This section is applicable to the latest stable release only.
