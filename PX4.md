@@ -89,7 +89,18 @@ adb push ${FC_ADDON}/images/8074-eagle/normal/adsp_proc/obj/qdsp6v5_ReleaseG/LA/
 
 ## Execution
 
-Connect to the target via SSH (recommended) or ADB. Then start the PX4 flight software as follows:
+Connect to the target via SSH (recommended) or ADB. 
+
+Remove the following files (that may have been created from a previous run)
+```
+sudo su
+cd /home/linaro
+rm ROMFS 
+rm posix-configs 
+rm test_data 
+```
+
+Start the PX4 flight software as follows:
 ```
 sudo su
 cd /home/linaro
