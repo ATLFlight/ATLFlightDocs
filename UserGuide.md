@@ -31,17 +31,17 @@ Flight control commands are transmitted over a Wi-Fi or RC communication link.
 The Wi-Fi communication link can transmit commands to the unmanned aerial vehicle (UAV). 
 For information on installation of antennas for Wi-Fi, see Qualcomm Snapdragon Flight User Guide (80-H9581-1).
 #### UAV setup
-By default, the system should come up in SoftAP mode. If the default is not set, this configuration can be enable with the following steps:
-1. Enable AP mode and reboot (see TODO for additional information).
-2. The AP mode defaults with automatic channel selection (ACS), which selects a 2.4 GHz channel with the least interference. If this is not the desired provisioning, this can be configured manually. Scan for other APs in the vicinity and configure SoftAP with a channel unlikely to suffer from interference with other devices. See TODO for additional information.
+By default, the system should come up in SoftAP mode. If the default is not set, this configuration can be enable with the following steps:  
+1. Enable AP mode and reboot (see TODO for additional information).  
+2. The AP mode defaults with automatic channel selection (ACS), which selects a 2.4 GHz channel with the least interference. If this is not the desired provisioning, this can be configured manually. Scan for other APs in the vicinity and configure SoftAP with a channel unlikely to suffer from interference with other devices. See TODO for additional information.  
 3. Once SoftAP mode is enabled, run the following command (through adb or serial console to the UAV) to determine its server set identifier (SSID):
-```/usr/local/qr-linux/wificonfig.sh –g```
+```/usr/local/qr-linux/wificonfig.sh –g```  
 4. When the PX4 flight stack is installed, this should include provisioning for MavLink communication to allow commands to be received and used by the flight stack. See TODO for additional details.
 #### View FPV video stream
 It also is possible to stream the FPV from the drone. This feature currently is currently in alpha state.
 Connect to the drone and start the flight software as usual. The FPV reads from an RTSP server running on the drone.
-The RTSP server can be started manually using the following command:
-```qcamvid –c hires –f auto –o /dev/null –t 600```  
+The RTSP server can be started manually using the following command:  
+```qcamvid –c hires –f auto –o /dev/null –t 600```    
 The argument to “-t” is the video stream duration in seconds (the video stream will stop after that length of time, which will cause the FPV on the app to fail since there is no more video streaming).  
 * -c is the type of camera.
 * -f is the focus mode. The example command above sets it in Auto mode.
@@ -81,7 +81,7 @@ In DspAL, we provide a device path to hardware mapping in the following manner:
    - UART: ```/dev/tty-[1-4]```  
 Up to four UART devices are supported. Each UART device is associated with a BAM device.
 Selecting any BLSP port as an SPI or I2C device is already supported in DspAL. This section describes how to configure UART to BAM port mapping at runtime.  
-*NOTE:* The /dev/i2c-[0-11] numbering convention will be deprecated in the next release. Update your software to use the /dev/iic-[1-12] device numbering convention.
+*NOTE:* The /dev/i2c-[0-11] numbering convention will be deprecated in the next release. Update your software to use the /dev/iic-[1-12] device numbering convention.  
 ### How it works
 During boot time, the aDSP loads a BLSP configuration file to initialize the UART devices. To enable run time configuration, define the UART device to BAM port mapping in the file /usr/share/data/adsp/blsp.config.
 The following is a sample blsp.config file showing the default board UART to BAM mapping:  
@@ -97,8 +97,8 @@ Note the following:
 - In case the config file does not exist or loading the file fails due to the incorrect format, the default settings listed above will be used.
 - After creating and editing the ```/usr/share/data/adsp/blsp.config``` file, it is recommended to set the file to read-only mode.
 - If the two-wire designation is not included, the UART defaults to using four wires: receive data, transmit data, clear to send (CTS), and receive to send (RTS)
-This will cause a problem for any other type of I/O on the same connector, since the pins will be configured as RTS and CTS signals.
-#### Sample logs
+This will cause a problem for any other type of I/O on the same connector, since the pins will be configured as RTS and CTS signals.  
+#### Sample logs  
 During aDSP boot time, the status of the run time configuration operation is shown in the mini-dm logs.
 The following is a sample log when the run time configuration was successful and the /usr/share/data/adsp/blsp.config was successfully loaded.
 ```
