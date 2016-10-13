@@ -79,9 +79,12 @@ In DspAL, we provide a device path to hardware mapping in the following manner:
       OR
       - ```/dev/iic-[1-12]``` represents I2C device on BLSP 1 to 12
    - UART: ```/dev/tty-[1-4]```  
-Up to four UART devices are supported. Each UART device is associated with a BAM device.
-Selecting any BLSP port as an SPI or I2C device is already supported in DspAL. This section describes how to configure UART to BAM port mapping at runtime.  
-*NOTE:* The /dev/i2c-[0-11] numbering convention will be deprecated in the next release. Update your software to use the /dev/iic-[1-12] device numbering convention.  
+
+*NOTE:* 
+- The /dev/i2c-[0-11] numbering convention will be deprecated soon. Update your software to use the /dev/iic-[1-12] device numbering convention.
+- Up to four UART devices are supported. Each UART device is associated with a BAM device.
+Selecting any BLSP port as an SPI or I2C device is already supported in DspAL. The following section describes how to configure UART to BAM port mapping at runtime.  
+
 ### How it works
 During boot time, the aDSP loads a BLSP configuration file to initialize the UART devices. To enable run time configuration, define the UART device to BAM port mapping in the file /usr/share/data/adsp/blsp.config.
 The following is a sample blsp.config file showing the default board UART to BAM mapping:  
@@ -98,6 +101,7 @@ Note the following:
 - After creating and editing the ```/usr/share/data/adsp/blsp.config``` file, it is recommended to set the file to read-only mode.
 - If the two-wire designation is not included, the UART defaults to using four wires: receive data, transmit data, clear to send (CTS), and receive to send (RTS)
 This will cause a problem for any other type of I/O on the same connector, since the pins will be configured as RTS and CTS signals.  
+
 #### Sample logs  
 During aDSP boot time, the status of the run time configuration operation is shown in the mini-dm logs.
 The following is a sample log when the run time configuration was successful and the /usr/share/data/adsp/blsp.config was successfully loaded.
