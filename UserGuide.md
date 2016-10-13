@@ -1,11 +1,13 @@
 # Snapdragon Flight User Guide
 This document is the user guide for Snapdragon Flight software.
+
 # Table of Contents
 1. [Logging](#logging)
    - [mini-dm](#mini-dm)
+
 ## Logging
 ## mini-dm
-The mini-diagnostic monitor (mini-dm.exe) is used to get debug messages from the DSP (including the FastRPC application) using the following procedure:
+The mini-diagnostic monitor (mini-dm) is used to get debug messages from the DSP (including the FastRPC application) using the following procedure:
 1. Download and install  the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools) on your host machine.
 2. Navigate to the mini-dm executable location:
 ``` ${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0/tools/debug/mini-dm/Linux_Debug ```
