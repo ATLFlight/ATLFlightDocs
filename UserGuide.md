@@ -68,3 +68,57 @@ To set up your transmitter, see the instruction manual at http://www.spektrumrc.
 To bind your transmitter to the receiver on your UAV, see the binding section of the manual corresponding to your receiver: http://www.spektrumrc.com/Air/Receivers.aspx.  
 Once the system has powered up, the transmitter joysticks and switches may be used to control and operate the UAV (including arm, disarm, pitch, yaw, roll, altitude, and navigation).  
 Consult your flight stack software documentation for details on operating the UAV using the transmitter in various modes of operation. (For PX4, see https://pixhawk.org/peripherals/radio-control/start and http://px4.io/docs/px4-autopilot/flying). 
+
+## Device path to hardware port mapping and run-time configuration
+### Overview
+The APQ8074 has 12 BLSP ports, each of which can be configured as serial peripheral interface (SPI), inter-integrated circuit (I2C), or universal asynchronous receiver transmitter (UART), etc. These ports are shared between the aDSP and the apps processor. To isolate the BAM low-speed peripheral (BLSP) port usage between the two subsystems, we can define BLSP port allocation in the TrustZone (TZ) module. Subsystems that access BLSP ports not owned by them result in a system crash.
+In DspAL, we provide a device path to hardware mapping in the following manner:
+   - SPI: ```/dev/spi-[1-12]``` represents SPI device on BLSP 1 to 12
+   - I2C:
+      - ```/dev/i2c-[0-11]``` represents I2C device on BLSP 1 to 12  
+      OR
+      - ```/dev/iic-[1-12]``` represents I2C device on BLSP 1 to 12
+   - UART: ```/dev/tty-[1-4]```  
+Up to four UART devices are supported. Each UART device is associated with a BAM device.
+Selecting any BLSP port as an SPI or I2C device is already supported in DspAL. This section describes how to configure UART to BAM port mapping at runtime.  
+*NOTE:* The /dev/i2c-[0-11] numbering convention will be deprecated in the next release. Update your software to use the /dev/iic-[1-12] device numbering convention.
+### How it works
+During boot time, the aDSP loads a BLSP configuration file to initialize the UART devices. To enable run time configuration, define the UART device to BAM port mapping in the file /usr/share/data/adsp/blsp.config.
+The following is a sample blsp.config file showing the default board UART to BAM mapping:  
+```
+tty-1 bam-9 2-wire  
+tty-2 bam-8 2-wire  
+tty-3 bam-6 2-wire  
+tty-4 bam-2 2-wire
+```
+Each line begins with the UART device name "tty-[x]" where x is between 1 and 4 inclusive. The device name is followed by a space and bam-[y] where y is between 1 and 12 inclusive. To indicate that the UART should only use two wires, one to receive and the other to transmit, include the text "[2-wire]" at the end of the line.  
+Note the following:
+- Not all four UART devices need to be configured. Developers may enable fewer than four UART devices.
+- In case the config file does not exist or loading the file fails due to the incorrect format, the default settings listed above will be used.
+- After creating and editing the ```/usr/share/data/adsp/blsp.config``` file, it is recommended to set the file to read-only mode.
+- If the two-wire designation is not included, the UART defaults to using four wires: receive data, transmit data, clear to send (CTS), and receive to send (RTS)
+This will cause a problem for any other type of I/O on the same connector, since the pins will be configured as RTS and CTS signals.
+#### Sample logs
+During aDSP boot time, the status of the run time configuration operation is shown in the mini-dm logs.
+The following is a sample log when the run time configuration was successful and the /usr/share/data/adsp/blsp.config was successfully loaded.
+```
+QDSP6/High00:04:21.725 blsp_config.c 00189 loading BLSP configuration
+QDSP6/High00:04:21.726 blsp_config.c 00208 opened /usr/share/data/adsp/blsp.config
+QDSP6/High00:04:21.726 blsp_config.c 00170 UART tty-1: BAM-6
+QDSP6/High00:04:21.726 blsp_config.c 00170 UART tty-2: BAM-9
+QDSP6/High00:04:21.726 blsp_config.c 00170 UART tty-3: BAM-2
+QDSP6/High00:04:21.726 blsp_config.c 00170 UART tty-4: BAM-8
+QDSP6/High00:04:21.727 main.c 00268 BLSP configuration loaded
+```
+The following is a sample log when the run time configuration failed and the /usr/share/data/adsp/blsp.config file did not exist. In this case, the aDSP uses default UART to BAM mappings.
+```
+QDSP6/Medium00:00:43.775 file.c 00162 HAP:159:open file blsp.config in mode rb
+QDSP6/High00:00:43.776 file.c 00167 HAP:159:unable to open the specified file path
+QDSP6/Fatal00:00:43.776 blsp_config.c 00204 failed to open /usr/share/data/adsp/blsp.config
+QDSP6/Fatal00:00:43.776 main.c 00261 QDSP6 Main.c: blsp_config_load() failed
+QDSP6/High00:00:43.776 blsp_config.c 00035 Loaded default UART-BAM mapping
+QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-1: BAM-9
+QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-2: BAM-6
+QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-3: BAM-8
+QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-4: BAM-2
+```
