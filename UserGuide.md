@@ -4,14 +4,13 @@ This document is a partial user guide for Snapdragon Flight.
 # Table of Contents
 1. [Logging](#logging)
    - [mini-dm](#mini-dm)
-2. [Flight Control](#flight-control)
-   - [WiFi control](#wifi-control)
-      - [UAV setup](#uav-setup)
-      - [View FPV video stream](#view-fpv-video-stream)
-      - [Spektrum transmission over WiFi](#spektrum-transmission-over-wifi)
-      - [Setup QGroundControl application](setup-qgroundcontrol-application)
-    - [RC radio control](rc-radio-control)
- 
+1. [Flight Control](#flight-control)
+   1. [WiFi control](#wifi-control)
+   1. [RC radio control](rc-radio-control)
+1. [aDSP SDK](asdp-sdk)
+1. [Device path to hardware port mapping and runtime configuration](device-path-to-hardware-port-mapping-and-runtime-configuration)
+1. [More information](more-information)
+
 ## Logging
 ### mini-dm
 The mini-diagnostic monitor (mini-dm) is used to get debug messages from the DSP (including the FastRPC application) using the following procedure:
@@ -69,7 +68,14 @@ To bind your transmitter to the receiver on your UAV, see the binding section of
 Once the system has powered up, the transmitter joysticks and switches may be used to control and operate the UAV (including arm, disarm, pitch, yaw, roll, altitude, and navigation).  
 Consult your flight stack software documentation for details on operating the UAV using the transmitter in various modes of operation. (For PX4, see https://pixhawk.org/peripherals/radio-control/start and http://px4.io/docs/px4-autopilot/flying). 
 
-## Device path to hardware port mapping and run-time configuration
+## aDSP SDK  
+The SDK includes the ```qcom_flight_controller_hexagon_sdk_add_on.zip``` file which is the Qualcomm Hexagon SDK add-on for the flight controller. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.   
+### aDSP/Hexagon developer guide
+Refer to the file docs/index.html in the Hexagon SDK available from https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools.  
+### DSP abstraction layer API
+The DSP abstraction layer (DSPAL) provides a standard interface for porting code to the application digital signal processor (aDSP) (Hexagon) processor. The DSPAL code and more information is available [here](DSPAL.md) and [here](https://github.com/ATLFlight/dspal).
+
+## Device path to hardware port mapping and runtime configuration
 ### Overview
 The APQ8074 has 12 BLSP ports, each of which can be configured as serial peripheral interface (SPI), inter-integrated circuit (I2C), or universal asynchronous receiver transmitter (UART), etc. These ports are shared between the aDSP and the apps processor. To isolate the BAM low-speed peripheral (BLSP) port usage between the two subsystems, we can define BLSP port allocation in the TrustZone (TZ) module. Subsystems that access BLSP ports not owned by them result in a system crash.
 In DspAL, we provide a device path to hardware mapping in the following manner:
@@ -126,3 +132,9 @@ QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-2: BAM-6
 QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-3: BAM-8
 QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-4: BAM-2
 ```
+
+## More Information
+Please refer to the following pages and documents for additional information:
+- User Guide and Developer Guide documents at: http://support.intrinsyc.com/projects/snapdragon-flight/documents
+- Information on pinouts, connectors and peripherals: http://dev.px4.io/hardware-snapdragon.html
+- Useful information and How-To's: http://dev.px4.io/advanced-snapdragon.html
