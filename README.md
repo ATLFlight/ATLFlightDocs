@@ -4,13 +4,19 @@ These pages provide some information about the [Snapdragon Flight](https://devel
 
 ## Table of Contents
 
-1. [Getting Started](GettingStarted.md)
-2. [Hello World](HelloWorld.md)
-3. [DSPAL](DSPAL.md) 
-4. [DriverFramework](DriverFramework.md)
-5. [PX4](PX4.md)
-6. [Snapdragon Flight User Guide](UserGuide.md)
-7. [Troubleshooting and FAQ](TroubleshootFAQ.md)
+1. [Snapdragon Flight User Guide](UserGuide.md)
+1. Apps Development
+  1.	Getting Started
+  2.	Hello World
+  3.	Camera Access
+  4.	GPU Access
+1. Real-time I/O, Flight Control development
+  1. [Getting Started](GettingStarted.md)
+  1. [Hello World](HelloWorld.md)
+  1. [DSPAL](DSPAL.md) 
+  1. [DriverFramework](DriverFramework.md)
+  1. [PX4](PX4.md)
+1. [Troubleshooting and FAQ](TroubleshootFAQ.md)
 
 ## License
 Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), &copy; 2016 Mark Charlebois
