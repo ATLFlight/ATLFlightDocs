@@ -6,10 +6,10 @@ This document is a partial user guide for Snapdragon Flight.
    - [mini-dm](#mini-dm)
 1. [Flight Control](#flight-control)
    1. [WiFi control](#wifi-control)
-   1. [RC radio control](rc-radio-control)
-1. [aDSP SDK](asdp-sdk)
-1. [Device path to hardware port mapping and runtime configuration](device-path-to-hardware-port-mapping-and-runtime-configuration)
-1. [More information](more-information)
+   1. [RC radio control](#rc-radio-control)
+1. [aDSP SDK](#adsp-sdk)
+1. [Device path to hardware port mapping and runtime configuration](#device-path-to-hardware-port-mapping-and-runtime-configuration)
+1. [More information](#more-information)
 
 ## Logging
 ### mini-dm
