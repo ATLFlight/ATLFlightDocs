@@ -9,6 +9,7 @@ This document is a partial user guide for Snapdragon Flight.
    1. [RC radio control](#rc-radio-control)
 1. [aDSP SDK](#adsp-sdk)
 1. [Device path to hardware port mapping and runtime configuration](#device-path-to-hardware-port-mapping-and-runtime-configuration)
+1. [Camera](#camera)
 1. [More information](#more-information)
 
 ## Logging
@@ -132,6 +133,21 @@ QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-2: BAM-6
 QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-3: BAM-8
 QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-4: BAM-2
 ```
+
+## Camera
+### Take a picture
+The following is required to take a picture:
+   - The camera::ICameraDevice::takePicture() function triggers the capture of a snapshot.  
+   - The caller must wait for the snapshot frame to be delivered before additional pictures can be taken.  
+   - The output snapshot image is delivered in the camera::ICameraListener::onPictureFrame() callback. This function should awaken the waiting thread.  
+   - The snapshot dimensions and format can be set using the corresponding parameters defined in camera::CameraParams.  
+
+### Sequence diagram
+Below is the call flow sequence diagram for a typical camera use case:
+![Image](./camera-sequence-diagram.jpg?raw=true)
+
+### Use cases
+For specific use cases of the API, such as stereo camera streaming, raw preview, and high framerate support, refer to the application note in the example test application. This application is located at: ```hardware/qcom/camera/libcamera/test/camera_test.cpp```
 
 ## More Information
 Please refer to the following pages and documents for additional information:
