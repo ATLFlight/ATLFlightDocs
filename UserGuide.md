@@ -31,11 +31,11 @@ The Wi-Fi communication link can transmit commands to the unmanned aerial vehicl
 For information on installation of antennas for Wi-Fi, see Qualcomm Snapdragon Flight User Guide (80-H9581-1).
 #### UAV setup
 By default, the system should come up in SoftAP mode. If the default is not set, this configuration can be enable with the following steps:  
-1. Enable AP mode and reboot (see TODO for additional information).  
-2. The AP mode defaults with automatic channel selection (ACS), which selects a 2.4 GHz channel with the least interference. If this is not the desired provisioning, this can be configured manually. Scan for other APs in the vicinity and configure SoftAP with a channel unlikely to suffer from interference with other devices. See TODO for additional information.  
-3. Once SoftAP mode is enabled, run the following command (through adb or serial console to the UAV) to determine its server set identifier (SSID):
-```/usr/local/qr-linux/wificonfig.sh –g```  
-4. When the PX4 flight stack is installed, this should include provisioning for MavLink communication to allow commands to be received and used by the flight stack. See TODO for additional details.
+   1. Enable AP mode and reboot. See [here](http://dev.px4.io/advanced-snapdragon.html#wifi-settings) for additional information.  
+   2. The AP mode defaults with automatic channel selection (ACS), which selects a 2.4 GHz channel with the least interference. If this is not the desired provisioning, this can be configured manually. Scan for other APs in the vicinity and configure SoftAP with a channel unlikely to suffer from interference with other devices. See the official [User Guide](http://support.intrinsyc.com/documents/125) for additional information.  
+   3. Once SoftAP mode is enabled, run the following command (through adb or serial console to the UAV) to determine its server set identifier (SSID):
+   ```/usr/local/qr-linux/wificonfig.sh –g```  
+   4. When the PX4 flight stack is installed, this should include provisioning for MavLink communication to allow commands to be received and used by the flight stack. See the [QGroundControl documentation](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content) for additional details.
 #### View FPV video stream
 It also is possible to stream the FPV from the drone. This feature currently is currently in alpha state.
 Connect to the drone and start the flight software as usual. The FPV reads from an RTSP server running on the drone.
