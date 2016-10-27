@@ -9,6 +9,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [Wired ethernet connection](#wired-ethernet-connection)
 1. [USB3 cable](#usb3-cable)
 1. [Camera image is rotated](#camera-image-is-rotated)
+1. [USB-to-serial debug cable](#usb-to-serial-debug-cable)
 
 ## Revive board that will not boot
 If your Snapdragon Flight board does not boot up, you may be able to recover it in one of the following ways:
@@ -96,3 +97,6 @@ Any standard USB micro-B cable may be used with the board. But in order to get U
 
 ## Camera image is rotated  
 On some of the newer boards from Intrinsyc, the 4K camera images are rotated by 90 degrees. This is a known issue. A software resolution is being worked on and will be provided shortly.
+
+## USB-to-serial debug cable
+The USB-to-Serial Debug Cable that plugs into the Serial Console Adapter is the TTL-232R-3V3 part from FTDI modified to be 4-pins and keying added to prevent incorrect insertion. For more information, see http://www.ftdichip.com/Support/Documents/DataSheets/Cables/DS_TTL-232R_CABLES.pdf.
