@@ -10,7 +10,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [USB3 cable](#usb3-cable)
 1. [Camera image is rotated](#camera-image-is-rotated)
 1. [USB-to-serial debug cable](#usb-to-serial-debug-cable)
-1. [Debugging ADB problems](#debugging-ADB-problems)
+1. [Debugging ADB problems](#debugging-adb-problems)
 
 ## Revive board that will not boot
 If your Snapdragon Flight board does not boot up, you may be able to recover it in one of the following ways:
