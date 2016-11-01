@@ -103,15 +103,15 @@ On some of the newer boards from Intrinsyc, the 4K camera images are rotated by 
 The USB-to-Serial Debug Cable that plugs into the Serial Console Adapter is the TTL-232R-3V3 part from FTDI modified to be 4-pins and keying added to prevent incorrect insertion. For more information, see http://www.ftdichip.com/Support/Documents/DataSheets/Cables/DS_TTL-232R_CABLES.pdf.
 
 ## Debugging ADB problems
-  1. Verify that the Snapdragon Flight target is listed when you type ```adb devices``` on the host computer?
-  2. Do ```ls -l /etc/udev/rules.d``` and check for the existance of the 51-android.rules file.
-  3. Verify that the following lines are present in your ```/etc/udev/rules.d/51-android.rules``` file? If not, add them and try again.
+  - Verify that the Snapdragon Flight target is listed when you type ```adb devices``` on the host computer?
+  - Do ```ls -l /etc/udev/rules.d``` and check for the existance of the 51-android.rules file.
+  - Verify that the following lines are present in your ```/etc/udev/rules.d/51-android.rules``` file? If not, add them and try again.
 ```
 #for Device adb interface
 SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", MODE="0666", GROUP="plugdev"
 #for Fastboot bootloader interface
 SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
 ```
-  4. Do ```lsusb``` on the host PC after the Snapdragon Flight board is connected and powered up. You must see an entry for the target (usually listed as ```Qualcomm, Inc. Qualcomm HSUSB Device```).
-  5. Do ```adb kill-server``` and then ```adb start-server``` and try again?
-  6. If none of this works, verify that adb is functional on your host computer by connecting a phone or other device.
+  - Do ```lsusb``` on the host PC after the Snapdragon Flight board is connected and powered up. You must see an entry for the target (usually listed as ```Qualcomm, Inc. Qualcomm HSUSB Device```).
+  - Do ```adb kill-server``` and then ```adb start-server``` and try again?
+  - If none of this works, verify that adb is functional on your host computer by connecting a phone or other device.
