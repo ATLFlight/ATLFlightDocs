@@ -5,17 +5,19 @@ These pages provide some information about the [Snapdragon Flight](https://devel
 ## Table of Contents
 
 1. [Snapdragon Flight User Guide](UserGuide.md)
-1. Apps Development
+1. CPU / Applications Processor Development
   1.	Getting Started
   2.	Hello World
-  3.	Camera Access
-  4.	GPU Access
-1. Real-time I/O, Flight Control development
+  3.	Camera Programming
+  4.	GPU Programming
+  5.	Debugging
+1. DSP - Real-time I/O, Flight Control development
   1. [Getting Started](GettingStarted.md)
   1. [Hello World](HelloWorld.md)
   1. [DSPAL](DSPAL.md) 
   1. [DriverFramework](DriverFramework.md)
   1. [PX4](PX4.md)
+  1. Debugging
 1. [Troubleshooting and FAQ](TroubleshootFAQ.md)
 
 ## License
