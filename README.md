@@ -11,7 +11,7 @@ These pages provide some information about the [Snapdragon Flight](https://devel
   3.	Camera Programming
   4.	GPU Programming
   5.	Debugging
-1. DSP - Real-time I/O, Flight Control development
+1. DSP development (Real-time I/O, Flight Control)
   1. [Getting Started](GettingStarted.md)
   1. [Hello World](HelloWorld.md)
   1. [DSPAL](DSPAL.md) 
@@ -21,4 +21,4 @@ These pages provide some information about the [Snapdragon Flight](https://devel
 1. [Troubleshooting and FAQ](TroubleshootFAQ.md)
 
 ## License
-Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), &copy; 2016 Mark Charlebois
+Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), &copy; 2016 Mark Charlebois, Bharath Ramaswamy, James Wilson
