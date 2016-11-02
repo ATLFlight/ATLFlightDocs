@@ -1,9 +1,10 @@
 # Snapdragon Flight User Guide
-This document is a partial user guide for Snapdragon Flight.
+This page provides useful information about the Snapdragon Flight Development Kit (developer's edition). TODO: Describe what it is. Add URL to product page.
 
 # Table of Contents
 1. [Logging](#logging)
-   - [mini-dm](#mini-dm)
+   - [aDSP](#adsp)
+   - [Apps processor](apps-processor)
 1. [Flight Control](#flight-control)
    1. [WiFi control](#wifi-control)
    1. [RC radio control](#rc-radio-control)
@@ -13,9 +14,9 @@ This document is a partial user guide for Snapdragon Flight.
 1. [More information](#more-information)
 
 ## Logging
-### mini-dm
+### aDSP
 The mini-diagnostic monitor (mini-dm) is used to get debug messages from the DSP (including the FastRPC application) using the following procedure:
-
+TODO: Remove windows
 1. Download and install  the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools) on your host machine.
 2. Navigate to the mini-dm executable location:
    * Linux: ``` ${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0/tools/debug/mini-dm/Linux_Debug ```
@@ -24,6 +25,9 @@ The mini-diagnostic monitor (mini-dm) is used to get debug messages from the DSP
 4. Run the mini-dm using the following command: ``` ./mini-dm ```(Linux) OR ```mini-dm.exe``` (Windows)
 5. Run the FastRPC or other application that loads the aDSP module. For more information, see the Hexagon SDK documentation located at ```${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0/docs/index.html```
 6. For more information on mini-dm, see this [FAQ](https://developer.qualcomm.com/forum/qdn-forums/mobile-technologies/multimedia-optimization-hexagon-sdk/toolsinstallation/27111).
+### Apps processor
+#### Serial cable
+  Information coming soon.
 
 ## Flight Control
 Flight control commands are transmitted over a Wi-Fi or RC communication link.
@@ -70,7 +74,7 @@ Once the system has powered up, the transmitter joysticks and switches may be us
 Consult your flight stack software documentation for details on operating the UAV using the transmitter in various modes of operation. (For PX4, see https://pixhawk.org/peripherals/radio-control/start and http://px4.io/docs/px4-autopilot/flying). 
 
 ## aDSP SDK  
-The SDK includes the ```qcom_flight_controller_hexagon_sdk_add_on.zip``` file which is the Qualcomm Hexagon SDK add-on for the flight controller. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.   
+TODO: The SDK includes the ```qcom_flight_controller_hexagon_sdk_add_on.zip``` file which is the Qualcomm Hexagon SDK add-on for the flight controller. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.   
 ### aDSP/Hexagon developer guide
 Refer to the file docs/index.html in the Hexagon SDK available from https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools.  
 ### DSP abstraction layer API
@@ -147,9 +151,9 @@ Below is the call flow sequence diagram for a typical camera use case:
 ![Image](./camera-sequence-diagram.jpg?raw=true)
 
 ### Use cases
-For specific use cases of the API, such as stereo camera streaming, raw preview, and high framerate support, refer to the application note in the example test application. This application is located at: ```hardware/qcom/camera/libcamera/test/camera_test.cpp```
+For specific use cases of the API, such as stereo camera streaming, raw preview, and high framerate support, refer to the application note in the example test application. This application is located at: ```hardware/qcom/camera/libcamera/test/camera_test.cpp``` TODO: Point to the CAF location - add URL.
 
-## More Information
+## More Information (TODO: Additional references)
 Please refer to the following pages and documents for additional information:
 - User Guide and Developer Guide documents at: http://support.intrinsyc.com/projects/snapdragon-flight/documents
 - Information on pinouts, connectors and peripherals: http://dev.px4.io/hardware-snapdragon.html
