@@ -75,6 +75,7 @@ Consult your flight stack software documentation for details on operating the UA
 ## aDSP SDK  
 The SDK includes the following:
 1. The Flight Controller AddOn file (*_qcom_flight_controller_*.zip) which is the Qualcomm add-on for the flight controller. The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files).
+   a. NOTE:  The add-on is usually installed on the target and not additional steps are needed. If not, run the installer script in the above zip file to install the contents on the target.
 2. The Hexagon SDK which provides a complete environment and means for generating dynamic Hexagon DSP code to customize and extend the features of the aDSP. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.
 ### aDSP/Hexagon developer guide
 Refer to the file docs/index.html in the Hexagon SDK available from https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools.  
