@@ -1,5 +1,5 @@
 # Snapdragon Flight User Guide
-This page provides useful information about the Snapdragon Flight Development Kit (developer's edition). TODO: Describe what it is. Add URL to product page.
+This page provides useful information about the Qualcomm® Snapdragon™ Flight Kit (Developer's edition) available [here](https://www.intrinsyc.com/vertical-development-platforms/qualcomm-snapdragon-flight). The Qualcomm® Snapdragon Flight™ is a highly integrated board based on a Qualcomm® Snapdragon™ 801 series processor that targets consumer drones and robotics applications.
 
 # Table of Contents
 1. [Logging](#logging)
@@ -11,23 +11,22 @@ This page provides useful information about the Snapdragon Flight Development Ki
 1. [aDSP SDK](#adsp-sdk)
 1. [Device path to hardware port mapping and runtime configuration](#device-path-to-hardware-port-mapping-and-runtime-configuration)
 1. [Camera](#camera)
-1. [More information](#more-information)
+1. [Acronyms and abbreviations](#acronyms-and-abbreviations)
+1. [Additional references](#additional-references)
 
 ## Logging
 ### aDSP
 The mini-diagnostic monitor (mini-dm) is used to get debug messages from the DSP (including the FastRPC application) using the following procedure:
-TODO: Remove windows
+
 1. Download and install  the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools) on your host machine.
-2. Navigate to the mini-dm executable location:
-   * Linux: ``` ${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0/tools/debug/mini-dm/Linux_Debug ```
-   * Windows: ```${HEXAGON_INSTALL_HOME}\Qualcomm\Hexagon_SDK\3.0\tools\debug\mini-dm\WinNT_Debug```
+2. Navigate to the mini-dm executable location: ``` ${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0/tools/debug/mini-dm/Linux_Debug ```
 3. Connect the USB cable from the Snapdragon Flight board to the host machine where the mini-dm is installed.
-4. Run the mini-dm using the following command: ``` ./mini-dm ```(Linux) OR ```mini-dm.exe``` (Windows)
+4. Run the mini-dm using the following command: ``` ./mini-dm ```
 5. Run the FastRPC or other application that loads the aDSP module. For more information, see the Hexagon SDK documentation located at ```${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0/docs/index.html```
 6. For more information on mini-dm, see this [FAQ](https://developer.qualcomm.com/forum/qdn-forums/mobile-technologies/multimedia-optimization-hexagon-sdk/toolsinstallation/27111).
 ### Apps processor
 #### Serial cable
-  Information coming soon.
+  TODO: Information coming soon.
 
 ## Flight Control
 Flight control commands are transmitted over a Wi-Fi or RC communication link.
@@ -74,7 +73,9 @@ Once the system has powered up, the transmitter joysticks and switches may be us
 Consult your flight stack software documentation for details on operating the UAV using the transmitter in various modes of operation. (For PX4, see https://pixhawk.org/peripherals/radio-control/start and http://px4.io/docs/px4-autopilot/flying). 
 
 ## aDSP SDK  
-TODO: The SDK includes the ```qcom_flight_controller_hexagon_sdk_add_on.zip``` file which is the Qualcomm Hexagon SDK add-on for the flight controller. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.   
+The SDK includes the following:
+1. The Flight Controller AddOn file (*_qcom_flight_controller_*.zip) which is the Qualcomm add-on for the flight controller. The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files).
+2. The Hexagon SDK which provides a complete environment and means for generating dynamic Hexagon DSP code to customize and extend the features of the aDSP. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.
 ### aDSP/Hexagon developer guide
 Refer to the file docs/index.html in the Hexagon SDK available from https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools.  
 ### DSP abstraction layer API
@@ -106,6 +107,7 @@ tty-3 bam-6 2-wire
 tty-4 bam-2 2-wire
 ```
 Each line begins with the UART device name "tty-[x]" where x is between 1 and 4 inclusive. The device name is followed by a space and bam-[y] where y is between 1 and 12 inclusive. To indicate that the UART should only use two wires, one to receive and the other to transmit, include the text "[2-wire]" at the end of the line.  
+
 Note the following:
 - Not all four UART devices need to be configured. Developers may enable fewer than four UART devices.
 - In case the config file does not exist or loading the file fails due to the incorrect format, the default settings listed above will be used.
@@ -141,19 +143,23 @@ QDSP6/High00:00:43.776 blsp_config.c 00043 UART tty-4: BAM-2
 ## Camera
 ### Take a picture
 The following is required to take a picture:
-   - The camera::ICameraDevice::takePicture() function triggers the capture of a snapshot.  
+   - The ```camera::ICameraDevice::takePicture()``` function triggers the capture of a snapshot.  
    - The caller must wait for the snapshot frame to be delivered before additional pictures can be taken.  
-   - The output snapshot image is delivered in the camera::ICameraListener::onPictureFrame() callback. This function should awaken the waiting thread.  
-   - The snapshot dimensions and format can be set using the corresponding parameters defined in camera::CameraParams.  
+   - The output snapshot image is delivered in the ```camera::ICameraListener::onPictureFrame()``` callback. This function should awaken the waiting thread.  
+   - The snapshot dimensions and format can be set using the corresponding parameters defined in ```camera::CameraParams```.
 
 ### Sequence diagram
 Below is the call flow sequence diagram for a typical camera use case:
 ![Image](./camera-sequence-diagram.jpg?raw=true)
 
 ### Use cases
-For specific use cases of the API, such as stereo camera streaming, raw preview, and high framerate support, refer to the application note in the example test application. This application is located at: ```hardware/qcom/camera/libcamera/test/camera_test.cpp``` TODO: Point to the CAF location - add URL.
+For specific use cases of the API, such as stereo camera streaming, raw preview, and high framerate support, refer to the application note in the example test application. This application is located at: ```hardware/qcom/camera/libcamera/test/camera_test.cpp``` in the repo ```ssh://git.quicinc.com:29418/platform/hardware/qcom/camera```.
 
-## More Information (TODO: Additional references)
+## Acronyms and abbreviations
+- BAM: Bus access manager
+- BLSP: BAM low-speed peripheral
+
+## Additional references
 Please refer to the following pages and documents for additional information:
 - User Guide and Developer Guide documents at: http://support.intrinsyc.com/projects/snapdragon-flight/documents
 - Information on pinouts, connectors and peripherals: http://dev.px4.io/hardware-snapdragon.html
