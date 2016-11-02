@@ -4,7 +4,7 @@ This page provides useful information about the Qualcomm® Snapdragon™ Flight 
 # Table of Contents
 1. [Logging](#logging)
    - [aDSP](#adsp)
-   - [Apps processor](apps-processor)
+   - Apps processor
 1. [Flight Control](#flight-control)
    1. [WiFi control](#wifi-control)
    1. [RC radio control](#rc-radio-control)
