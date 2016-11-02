@@ -24,9 +24,10 @@ The mini-diagnostic monitor (mini-dm) is used to get debug messages from the DSP
 4. Run the mini-dm using the following command: ``` ./mini-dm ```
 5. Run the FastRPC or other application that loads the aDSP module. For more information, see the Hexagon SDK documentation located at ```${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0/docs/index.html```
 6. For more information on mini-dm, see this [FAQ](https://developer.qualcomm.com/forum/qdn-forums/mobile-technologies/multimedia-optimization-hexagon-sdk/toolsinstallation/27111).
+
 ### Apps processor
-#### Serial cable
-  TODO: Information coming soon.
+#### Serial console logging
+More information coming soon.
 
 ## Flight Control
 Flight control commands are transmitted over a Wi-Fi or RC communication link.
