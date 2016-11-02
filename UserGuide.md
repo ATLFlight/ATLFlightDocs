@@ -74,11 +74,13 @@ Consult your flight stack software documentation for details on operating the UA
 
 ## aDSP SDK  
 The SDK includes the following:
-1. The Flight Controller AddOn file (*_qcom_flight_controller_*.zip) which is the Qualcomm add-on for the flight controller. The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files).
-   a. NOTE:  The add-on is usually installed on the target and not additional steps are needed. If not, run the installer script in the above zip file to install the contents on the target.
-2. The Hexagon SDK which provides a complete environment and means for generating dynamic Hexagon DSP code to customize and extend the features of the aDSP. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.
+  - The Flight Controller AddOn file (*_qcom_flight_controller_*.zip) which is the Qualcomm add-on for the flight controller. The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files).
+    - NOTE: A default version of the add-on is pre-installed on target. In some cases, a new add-on may be available at the above URL that may contain additional features or fixes. In that situation, please download and extract the ZIP file, and execute the installation script therein to install the contents on target.
+  - The Hexagon SDK which provides a complete environment and means for generating dynamic Hexagon DSP code to customize and extend the features of the aDSP. Refer to the following link for the general Hexagon Digital Signal Process (DSP) SDK development guide: https://developer.qualcomm.com/software/hexagon-dsp-sdk.
+
 ### aDSP/Hexagon developer guide
 Refer to the file docs/index.html in the Hexagon SDK available from https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools.  
+
 ### DSP abstraction layer API
 The DSP abstraction layer (DSPAL) provides a standard interface for porting code to the application digital signal processor (aDSP) (Hexagon) processor. The DSPAL code and more information is available [here](DSPAL.md) and [here](https://github.com/ATLFlight/dspal).
 
@@ -154,7 +156,7 @@ Below is the call flow sequence diagram for a typical camera use case:
 ![Image](./camera-sequence-diagram.jpg?raw=true)
 
 ### Use cases
-For specific use cases of the API, such as stereo camera streaming, raw preview, and high framerate support, refer to the application note in the example test application. This application is located at: ```hardware/qcom/camera/libcamera/test/camera_test.cpp``` in the repo ```ssh://git.quicinc.com:29418/platform/hardware/qcom/camera```.
+For specific use cases of the API, such as stereo camera streaming, raw preview, and high framerate support, refer to the application note in the example test application. This application is located at: https://source.codeaurora.org/quic/le/platform/hardware/qcom/camera/tree/libcamera?h=LNX.LER.1.2.
 
 ## Acronyms and abbreviations
 - BAM: Bus access manager
