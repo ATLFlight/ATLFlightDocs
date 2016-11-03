@@ -1,6 +1,6 @@
 # Snapdragon Flight Documentation
 
-These pages provide some information about the [Snapdragon Flight](https://developer.qualcomm.com/hardware/snapdragon-flight) platform including how to setup the build environment, various SW components and more. This information must be used in conjunction with the [official documentation](https://developer.qualcomm.com/hardware/snapdragon-flight).
+These pages provide some information about the [Snapdragon Flight™](https://developer.qualcomm.com/hardware/snapdragon-flight) platform including how to setup the build environment, various SW components and more. This information must be used in conjunction with the [official documentation](https://developer.qualcomm.com/hardware/snapdragon-flight).
 
 ## Table of Contents
 
