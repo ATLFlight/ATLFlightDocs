@@ -1,6 +1,7 @@
 # Troubleshooting and FAQs
 This page provides answers to common questions, solutions to common problems and other how-tos.
 
+1. [Host computer requirements](#host-computer-requirements)
 1. [Revive board that will not boot](#revive-board-that-will-not-boot)
 1. [Serial console adapter board](#serial-console-adapter-board)
 1. [apt-get does not work](#apt-get-does-not-work)
@@ -12,8 +13,11 @@ This page provides answers to common questions, solutions to common problems and
 1. [USB-to-serial debug cable](#usb-to-serial-debug-cable)
 1. [Debugging ADB problems](#debugging-adb-problems)
 
+## Host computer requirements
+A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon™ Flight board (newer versions of the OS may work too but may not be tested / supported).
+
 ## Revive board that will not boot
-If your Snapdragon Flight board does not boot up, you may be able to recover it in one of the following ways:
+If your Snapdragon™ Flight board does not boot up, you may be able to recover it in one of the following ways:
 
 ### Factory reset  
 This is documented in the "Factory reset" chapter of the Snapdragon Flight User Guide: http://support.intrinsyc.com/documents/125  
@@ -35,7 +39,7 @@ To boot the board normally again, perform the following steps:
   3. Power up the Snapdragon Flight board and connect the board to the computer via a USB cable.  
   4. Validate the connection by typing “adb devices” on a command prompt or terminal window.
 
-*NOTE:* If none of the above options work, please contact [Intrinsyc support](https://www.intrinsyc.com/contact-support) to get it reflashed.
+*NOTE:* If none of the above options work, please contact [support](https://www.intrinsyc.com/contact-support) to get it reflashed.
 
 ## Serial console adapter board  
 The serial console adapter board and cable are available as part of the [Snapdragon Flight developer's edition](http://shop.intrinsyc.com/collections/product-development-kits/products/snapdragon-flight-dev-kit). This allows the board to be accessed through a USB connector for debugging purposes. It also provides jumpers to force the board in fastboot and other special modes if necessary.
@@ -44,7 +48,7 @@ Some customers may have received an older deprecated version of the serial conso
   - 25-H9563 - Older serial console board, it does not include the fastboot jumper pins
   - 25-H9916 - New serial console board, it includes the fastboot jumper pins (J4)  
 
-If you have the older version, please contact Intrinsyc to get the newer Serial Console Adapter board.
+If you have the older version, please contact [support](https://www.intrinsyc.com/contact-support) to get the newer Serial Console Adapter board.
 
 ## apt-get does not work  
 Ensure that the Snapdragon Flight board is configured in [Station mode](http://dev.px4.io/advanced-snapdragon.html#station-mode) and connected to the Internet: 
@@ -97,7 +101,7 @@ The board can be connected to the network over a wired connection via the OTG US
 Any standard USB micro-B cable may be used with the board. But in order to get USB 3.0 SuperSpeed functionality, one requires a MICRO-A PLUG TO STD-A cable (such as the Amphenol RUB30-0075 http://www1.amphenol-ast.com/v3/en/product_view.aspx?id=189).
 
 ## Camera image is rotated  
-On some of the newer boards from Intrinsyc, the 4K camera images are rotated by 90 degrees. This is a known issue. A software resolution is being worked on and will be provided shortly.
+On some of the newer boards, the 4K camera images are rotated by 90 degrees. This is a known issue. A software resolution is being worked on and will be provided shortly.
 
 ## USB-to-serial debug cable
 The USB-to-Serial Debug Cable that plugs into the Serial Console Adapter is the TTL-232R-3V3 part from FTDI modified to be 4-pins and keying added to prevent incorrect insertion. For more information, see http://www.ftdichip.com/Support/Documents/DataSheets/Cables/DS_TTL-232R_CABLES.pdf.
