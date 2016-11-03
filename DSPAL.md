@@ -76,3 +76,8 @@ adb shell
 # ./dspal_tester
 # exit
 ```
+
+## ADSP keep alive
+In the case of a kernel panic, the default software behavior is to perform a system restart. In many cases this is undesirable, as it resets the ADSP processor which can be running software such as a flight stack. An ADSP keep alive feature has been introduced which disables the system restart during kernel panics. This allows the software on the ADSP to continue running when a kernel panic has been triggered.
+
+By default, this feature is disabled to allow for debugging kernel panics. To enable the feature, set KEEP_ALIVE to 1 in the ```/usr/local/qr-linux/q6-admin.sh``` on target and then reboot the target.
