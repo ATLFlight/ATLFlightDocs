@@ -14,7 +14,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [Debugging ADB problems](#debugging-adb-problems)
 
 ## Host computer requirements
-A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon™ Flight board (newer versions of the OS may work too but may not be tested / supported).
+A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon Flight™ board (newer versions of the OS may work too but may not be tested / supported).
 
 ## Revive board that will not boot
 If your Snapdragon™ Flight board does not boot up, you may be able to recover it in one of the following ways:
