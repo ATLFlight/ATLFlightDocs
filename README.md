@@ -6,11 +6,12 @@ These pages provide some information about the [Snapdragon Flight™](https://de
 
 1. [Snapdragon Flight User Guide](UserGuide.md)
 1. CPU / Applications Processor Development
-  1.	Getting Started
-  2.	Hello World
-  3.	Camera Programming
-  4.	GPU Programming
-  5.	Debugging
+  1. Getting Started
+  2. Hello World
+  3. Camera Programming
+  4. GPU Programming
+  5. Video Encoder Programming
+  6. Debugging
 1. DSP development (Real-time I/O, Flight Control)
   1. [Getting Started](GettingStarted.md)
   1. [Hello World](HelloWorld.md)
