@@ -109,7 +109,7 @@ This sysroot contains the header files and libraries to use the camera, GPU, etc
 ```
 export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
 unset HEXAGON_ARM_SYSROOT
-./trusty_sysroot.sh
+./qrlinux_sysroot.sh
 ```
 Make sure to set the environment variable:
 ```
