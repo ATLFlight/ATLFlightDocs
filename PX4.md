@@ -88,10 +88,12 @@ adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libpx4.so /u
 adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libpx4muorb_skel.so /usr/share/data/adsp
 ```
 
-Install the aDSP static image and drivers from the Flight Controller AddOn:
+Install the aDSP static image and drivers from the Flight Controller AddOn by executing the install script provided in the addon:
 ```
-adb push ${FC_ADDON}/flight_controller/hexagon/libs/. /usr/share/data/adsp
-adb push ${FC_ADDON}/images/8074-eagle/normal/adsp_proc/obj/qdsp6v5_ReleaseG/LA/system/etc/firmware/. /lib/firmware
+installfcaddon.sh <from Linux>
+<or>
+installfcaddon.bat <from Windows>
+
 ```
 
 ## Execution
