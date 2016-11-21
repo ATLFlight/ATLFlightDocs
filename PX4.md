@@ -40,7 +40,14 @@ git clone https://github.com/ATLFlight/Firmware
 cd Firmware
 git checkout tags/<stable_release_tag_name>
 git submodule update --init --recursive
-export FC_ADDON=<location-of-extracted-flight-controller-addon>
+export FC_ADDON=<location of FC addon installation>
+export HEXAGON_ROOT=<root directory containing tools>
+export HEXAGON_ARM_SYSROOT=${HEXAGON_ROOT}/ubuntu_14.04_armv7_sysroot
+export HEXAGON_SDK_ROOT=${HEXAGON_ROOT}/Hexagon_SDK/3.0
+export HEXAGON_TOOLS_ROOT=${HEXAGON_ROOT}/HEXAGON_Tools/7.2.12/Tools
+export PYTHONPATH=/usr/share/pyshared
+export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
+export PATH=/pkg/qct/software/cmake/3.5.2/bin:${PATH}
 ```
 *NOTE:* Substitute \<stable_release_tag_name\> with the latest tag from the *Stable Releases* section on this page.
 
@@ -81,10 +88,12 @@ adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libpx4.so /u
 adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libpx4muorb_skel.so /usr/share/data/adsp
 ```
 
-Install the aDSP static image and drivers from the Flight Controller AddOn:
+Install the aDSP static image and drivers from the Flight Controller AddOn by executing the install script provided in the addon:
 ```
-adb push ${FC_ADDON}/flight_controller/hexagon/libs/. /usr/share/data/adsp
-adb push ${FC_ADDON}/images/8074-eagle/normal/adsp_proc/obj/qdsp6v5_ReleaseG/LA/system/etc/firmware/. /lib/firmware
+installfcaddon.sh <from Linux>
+<or>
+installfcaddon.bat <from Windows>
+
 ```
 
 ## Execution
@@ -120,6 +129,7 @@ Following are the git tags corresponding to stable releases:
 - EAGLE_DRONE_1.1_PCS_1 (June 28, 2016)
 - EAGLE_DRONE_1.2_ES2_0 (July 12, 2016)
 - EAGLE_DRONES_1.2_FC_0 (September 8, 2016)
+- EAGLE_DRONE_1.2_CS_0 (November 11, 2016)
 
 NOTE: The latest tag above is compatible/tested with platform software version 3.1.1_BSP and flight controller addon version 3.1.1a available from Intrinsyc [here](http://support.intrinsyc.com/projects/snapdragon-flight/files). Follow the instructions in the readme file therein to complete the installation.
 
