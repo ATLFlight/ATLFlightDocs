@@ -2,18 +2,29 @@
 
 This document describes the build and execution procedure for PX4 flight software on the [Snapdragon Flight](https://www.intrinsyc.com/vertical-development-platforms/qualcomm-snapdragon-flight) platform using drivers provided by Qualcomm.
 
+1. [Prerequisites](#prerequisites)
+1. [Building with upstream drivers](#building-with-upstream-drivers)
+1. [Building with FC_ADDON drivers](#building-with-fc_addon-drivers)
+  1. [Host Setup](#host-setup)
+  1. [Building the Code](#building-the-code)
+  1. [Installation on Target](#installation-on-target)
+  1. [Execution](#execution)
+1. [Stable Releases](#stable-releases)
+1. [Known Issues and Limitations](#known-issues-and-limitations)
+1. [More Information](#more-information)
+
 ## Prerequisites
 
 To build the PX4 flight stack for Snapdragon Flight, you need to set up the build environment as described in [GettingStarted](GettingStarted.md).
 You can optionally build and run [HelloWorld](https://github.com/ATLFlight/ATLFlightDocs/blob/master/HelloWorld.md) to test your setup.
 
-## Building PX4 with the upstream drivers
+## Building with upstream drivers
 
 This configuration is supported by the PX4 community. For more information on the hardware components required, please see [http://dev.px4.io](http://dev.px4.io/).
 
 To build code for this configuration, please SKIP the rest of this page and follow the instructions in the official PX4 documentation at [http://dev.px4.io/starting-building.html](http://dev.px4.io/starting-building.html).
 
-## Building PX4 with the FC_ADDON drivers
+## Building with FC_ADDON drivers
 
 The following hardware is supported / tested by this configuration:
 * [Snapdragon Flight](https://shop.intrinsyc.com/products/qualcomm-snapdragon-flight-sbc) or [Developer's Edition](https://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
@@ -40,16 +51,9 @@ git clone https://github.com/ATLFlight/Firmware
 cd Firmware
 git checkout tags/<stable_release_tag_name>
 git submodule update --init --recursive
-export FC_ADDON=<location of FC addon installation>
-export HEXAGON_ROOT=<root directory containing tools>
-export HEXAGON_ARM_SYSROOT=${HEXAGON_ROOT}/ubuntu_14.04_armv7_sysroot
-export HEXAGON_SDK_ROOT=${HEXAGON_ROOT}/Hexagon_SDK/3.0
-export HEXAGON_TOOLS_ROOT=${HEXAGON_ROOT}/HEXAGON_Tools/7.2.12/Tools
-export PYTHONPATH=/usr/share/pyshared
-export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
-export PATH=/pkg/qct/software/cmake/3.5.2/bin:${PATH}
+export FC_ADDON=<location-of-extracted-flight-controller-addon>
 ```
-*NOTE:* Substitute \<stable_release_tag_name\> with the latest tag from the *Stable Releases* section on this page.
+*NOTE:* Substitute \<stable_release_tag_name\> with the latest tag from the [Stable Releases](#stable-releases) section on this page.
 
 ### Building the Code
 The commands below build the targets for the DSP and the Linux side. Both executables communicate via muORB.
@@ -135,7 +139,7 @@ NOTE: The latest tag above is compatible/tested with platform software version 3
 
 ## Known Issues and Limitations
 
-*NOTE:* This section is applicable to the latest stable release only.
+*NOTE:* This section is applicable to the latest [stable release](#stable-releases) only.
 
 Only the following modes / configurations / tools have been tested and therefore supported:
 - Flight modes
@@ -145,7 +149,6 @@ Only the following modes / configurations / tools have been tested and therefore
 
 The following are not functional:
 - HITL / HIL mode
-- Accelerometer calibration through the QGroundControl user interface
 
 ## More Information
 - Running the mini-dm logging tool: http://dev.px4.io/starting-building.html#run-it

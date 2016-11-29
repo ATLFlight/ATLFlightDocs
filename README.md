@@ -1,17 +1,16 @@
 # Snapdragon Flight Documentation
 
-These pages provide some information about the [Snapdragon Flight™](https://developer.qualcomm.com/hardware/snapdragon-flight) platform including how to setup the build environment, various SW components and more. This information must be used in conjunction with the [official documentation](https://developer.qualcomm.com/hardware/snapdragon-flight).
+These pages provide some information about the [Snapdragon Flight™](https://developer.qualcomm.com/hardware/snapdragon-flight) platform (developer’s edition) including how to setup the build environment, various SW components and more. This information should be used in conjunction with the [official documentation](https://developer.qualcomm.com/hardware/snapdragon-flight).
 
 ## Table of Contents
 
 1. [Snapdragon Flight User Guide](UserGuide.md)
 1. CPU / Applications Processor Development
-  1. Getting Started
-  2. Hello World
-  3. Camera Programming
-  4. GPU Programming
-  5. Video Encoder Programming
-  6. Debugging
+  1. [Getting Started (and Hello World)](AppsGettingStarted.md)
+  1. [Camera Programming](CameraProg.md)
+  1. GPU Programming
+  1. Video Encoder Programming
+  1. Debugging
 1. DSP development (Real-time I/O, Flight Control)
   1. [Getting Started](GettingStarted.md)
   1. [Hello World](HelloWorld.md)
