@@ -23,19 +23,19 @@ If your Snapdragon™ Flight board does not boot up, you may be able to recover 
 This is documented in the "Factory reset" chapter of the Snapdragon Flight User Guide: http://support.intrinsyc.com/documents/125  
 
 ### Fastboot mode
-with a *serial console adapter* board (see [here](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit) for details). Use the following procedure to recover the Snapdragon Flight board:  
-  1. Disconnect power and USB cable(s) from the Snapdragon Flight and debug boards.  
-  2. Plug the Snapdragon Flight board into the debug board.  
+With a *serial console adapter* board (see [here](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit) for details). Use the following procedure to recover the Snapdragon Flight board:  
+  1. Disconnect power and USB cable(s) from the Snapdragon Flight and adapter boards.  
+  2. Plug the serial console adapter board into the Snapdragon Flight board.  
   3. Enable (insert jumper) J2 (FASTBOOT) of the *serial console adapter* board.  
-  4. Connect the debug board’s J4 to the computer’s USB port, using the provided USB cable, and open a serial terminal (CuteCom or Putty).  
-  5. Power up the debug board.  
+  4. Connect the debug board’s 3-pin serial port to the computer’s USB port, using the provided USB-to-serial cable, and open a serial terminal (CuteCom or Putty).  
+  5. Power up the Snapdragon Flight board.  
   6. Connect the Snapdragon Flight board to the computer via a USB cable.  
   7. Validate the connection by typing “fastboot devices” on a command prompt or terminal window. You should now see the device-specific random number displayed.  
   8. You should be able to flash the platform software images at this point.
 
 To boot the board normally again, perform the following steps:  
   1. Unplug the power supply and USB cable.  
-  2. Remove the jumper from J2 on the serial console debug board.  
+  2. Remove the jumper from FSTBT (J2) on the serial console adapter board.  
   3. Power up the Snapdragon Flight board and connect the board to the computer via a USB cable.  
   4. Validate the connection by typing “adb devices” on a command prompt or terminal window.
 
