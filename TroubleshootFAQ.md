@@ -4,6 +4,8 @@ This page provides answers to common questions, solutions to common problems and
 1. [Host computer requirements](#host-computer-requirements)
 1. [Revive board that will not boot](#revive-board-that-will-not-boot)
 1. [Serial console adapter board](#serial-console-adapter-board)
+  1. [Older versions](#older-versions)
+  1. [Pin compatibility issues](#pin-compatibility-issues)
 1. [apt-get does not work](#apt-get-does-not-work)
 1. [Install OpenCV](#install-opencv)
 1. [WiFi network connection](#wifi-network-connection)  
@@ -12,6 +14,8 @@ This page provides answers to common questions, solutions to common problems and
 1. [Camera image is rotated](#camera-image-is-rotated)
 1. [USB-to-serial debug cable](#usb-to-serial-debug-cable)
 1. [Debugging ADB problems](#debugging-adb-problems)
+1. [Unable to flash platform BSP](#unable-to-flash-platform-bsp)
+1. [Debugging IMU issues](#debugging-imu-issues)
 
 ## Host computer requirements
 A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon Flight™ board (newer versions of the OS may work too but may not be tested / supported).
@@ -44,11 +48,19 @@ To boot the board normally again, perform the following steps:
 ## Serial console adapter board  
 The serial console adapter board and cable are available as part of the [Snapdragon Flight developer's edition](http://shop.intrinsyc.com/collections/product-development-kits/products/snapdragon-flight-dev-kit). This allows the board to be accessed through a USB connector for debugging purposes. It also provides jumpers to force the board in fastboot and other special modes if necessary.
 
+### Older versions
 Some customers may have received an older deprecated version of the serial console adapter board does not include the fastboot jumper support. Please look at the MCN printed on the board to identify it:
   - 25-H9563 - Older serial console board, it does not include the fastboot jumper pins
   - 25-H9916 - New serial console board, it includes the fastboot jumper pins (J4)  
 
 If you have the older version, please contact [support](https://www.intrinsyc.com/contact-support) to get the newer Serial Console Adapter board.
+
+### Pin compatibility issues
+Some serial console adapter parts have all 4 pins on the header whereas they should only have 3. If you have such a part, please *clip pin 2* on the header. This allows the FTDI serial cable to be inserted in only 1 way as below:
+ 
+Pin 1 (TXD) Orange  
+Pin 3 (RXD) Yellow  
+Pin 4 (GND) Black
 
 ## apt-get does not work  
 Ensure that the Snapdragon Flight board is configured in [Station mode](http://dev.px4.io/advanced-snapdragon.html#station-mode) and connected to the Internet: 
@@ -119,3 +131,34 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
   - Do ```lsusb``` on the host PC after the Snapdragon Flight board is connected and powered up. You must see an entry for the target (usually listed as ```Qualcomm, Inc. Qualcomm HSUSB Device```).
   - Do ```adb kill-server``` and then ```adb start-server``` and try again?
   - If none of this works, verify that adb is functional on your host computer by connecting a phone or other device.
+
+## Unable to flash platform BSP
+If you're unable to flash the platform BSP using the [intructions here](http://support.intrinsyc.com/projects/snapdragon-flight/wiki/Get_and_install_the_latest_platform_BSP), please try the following:
+- Execute the jflash script as root
+
+## Debugging IMU issues
+Do the following steps if you experience issues that may be due to IMU data. This is a test utility to verify that IMU data is being received correctly.
+
+On the host machine via a separate terminal (*optional*):
+``` ${HEXAGON_SDK_ROOT}/tools/mini-dm/Linux_Debug/mini-dm ```
+
+On the target:
+
+```shell
+cd /usr/bin
+
+# Run the imu_app (in the background)
+./imu_app &
+ 
+# Run the sensor_imu_tester app for 'n' seconds
+./sensor_imu_tester <n>
+## It should run and then say "test completed..."
+## It should log the IMU data in a file called IMU_*.txt
+ 
+# Stop the imu_app
+VAR=$(ps -eaf | grep imu_app | grep -v grep | awk '{print $2}' | cut -d' ' -f2); kill $VAR
+```
+
+If the IMU_*.txt file was not created or the IMU data in it does not look correct, please try the following:
+- Ensure that you installed the latest versions platform BSP and flight controller addon from [here] (http://support.intrinsyc.com/projects/snapdragon-flight).
+- Post your issue on the [QDN forum](https://developer.qualcomm.com/forums/hardware/snapdragon-flight) with a snippet of the target console log as well as the log from mini-dm.

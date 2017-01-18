@@ -18,8 +18,8 @@ These pages provide some information about the [Snapdragon Flight™](https://de
   1. [DriverFramework](DriverFramework.md)
   1. [PX4](PX4.md)
   1. Debugging
-1. Snapdragon Flight<sup>TM</sup> example applications
-  1. [Snapdragon VISLAM ROS example](https://github.com/ATLFlight/ros-examples)
+1. Example applications
+  1. [VISLAM ROS example](https://github.com/ATLFlight/ros-examples)
 1. [Troubleshooting and FAQ](TroubleshootFAQ.md)
 
 ## License
