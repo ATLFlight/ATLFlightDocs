@@ -8,6 +8,7 @@ These pages provide some information about the [Snapdragon Flight™](https://de
 1. CPU / Applications Processor Development
   1. [Getting Started (and Hello World)](AppsGettingStarted.md)
   1. [Camera Programming](CameraProg.md)
+  1. [ROS Installation](SnapdragonROSInstallation.md)
   1. GPU Programming
   1. Video Encoder Programming
   1. Debugging
