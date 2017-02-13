@@ -16,6 +16,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [Debugging ADB problems](#debugging-adb-problems)
 1. [Unable to flash platform BSP](#unable-to-flash-platform-bsp)
 1. [Debugging IMU issues](#debugging-imu-issues)
+1. [GPS support](#gps-support)
 
 ## Host computer requirements
 A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon Flight™ board (newer versions of the OS may work too but may not be tested / supported).
@@ -162,3 +163,6 @@ VAR=$(ps -eaf | grep imu_app | grep -v grep | awk '{print $2}' | cut -d' ' -f2);
 If the IMU_*.txt file was not created or the IMU data in it does not look correct, please try the following:
 - Ensure that you installed the latest versions platform BSP and flight controller addon from [here] (http://support.intrinsyc.com/projects/snapdragon-flight).
 - Post your issue on the [QDN forum](https://developer.qualcomm.com/forums/hardware/snapdragon-flight) with a snippet of the target console log as well as the log from mini-dm.
+
+## GPS support
+The on-board GPS module on the Snapdragon Flight™ is *not* supported. Please check this page for other options: https://dev.px4.io/hardware-snapdragon.html
