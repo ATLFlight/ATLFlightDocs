@@ -77,7 +77,7 @@ Reinstall the previously-uninstalled packages as follows:
 ```shell  
 mkdir temp-mount  
 mount /dev/mmcblk0p12 temp-mount/  
-cd temp-mount/ qrlPackages/  
+cd temp-mount
 dpkg -i fastcv-internal_1.0-r0_armhf.deb  
 dpkg -i mm-camera-lib-prebuilt_1.0 
 ```
@@ -87,7 +87,7 @@ The standard way to install OpenCV is: ```apt-get install --fix-missing libopenc
 
 Since apt-get on Snapdragon Flight is broken, we need to use the following work-around:
 
-Uninstall certain uninstalled packages in order to get apt-get to work, and then install OpenCV.
+Uninstall certain installed packages in order to get apt-get to work, and then install OpenCV.
 ```shell  
 apt-get install -f  
 apt-get -o Dpkg::Options::="--force-overwrite" install libglib2.0-dev  
@@ -98,7 +98,7 @@ Reinstall the previously-uninstalled packages as follows:
 ```shell
 mkdir temp-mount  
 mount /dev/mmcblk0p12 temp-mount/  
-cd temp-mount/ qrlPackages/  
+cd temp-mount
 dpkg -i fastcv-internal_1.0-r0_armhf.deb  
 dpkg -i mm-camera-lib-prebuilt_1.0 
 ```
