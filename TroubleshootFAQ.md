@@ -108,7 +108,7 @@ To connect Snapdragon Flight board to a WiFi router on the network, please follo
 http://dev.px4.io/advanced-snapdragon.html
 
 ## Wired ethernet connection  
-The board can be connected to the network over a wired connection via the OTG USB port by using a USB Ethernet adapter (such as http://www.apple.com/shop/product/MC704LL/A/apple-usb-ethernet-adapter) along with a USB 2.0 Female to Micro USB Male OTG adapter (such as http://www.rakuten.com/prod/268480078.html).
+The board can be connected to the network over a wired connection via the OTG USB port by using a USB Ethernet adapter (such as http://www.apple.com/shop/product/MC704LL/A/apple-usb-ethernet-adapter OR Linksys USB 3.0 Gigabit Ethernet Adapter - model USB3GIGV1) along with a USB 2.0 Female to Micro USB Male OTG adapter (such as http://www.rakuten.com/prod/268480078.html).
 
 ## USB3 cable  
 Any standard USB micro-B cable may be used with the board. But in order to get USB 3.0 SuperSpeed functionality, one requires a MICRO-A PLUG TO STD-A cable (such as the Amphenol RUB30-0075 http://www1.amphenol-ast.com/v3/en/product_view.aspx?id=189).
