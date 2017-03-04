@@ -50,7 +50,7 @@ A "Hello World" sample app is included in the SDK archive.
 
 To build the sample app:
 ```
-> cd /local/mnt/workspace/qrlSdkSrc/qrlSDK/sample
+> cd /local/mnt/workspace/qrlSdkSrc/sample
 > source /local/mnt/workspace/qrlSdkDst/environment-setup-<target>
 > make
 ```
@@ -61,7 +61,7 @@ Push the sample app to the target and run it:
 ```
 > adb push hello /home/linaro
 <xyz> KB/s (<abc> bytes in <p.q>s)
-> adb shell /home/linaro
+> adb shell /home/linaro/hello
 Hello world!
 ```
 
