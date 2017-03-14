@@ -120,7 +120,7 @@ export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
 ```
 ## All Done. What Next?
 
-### Setup Environmrnt variables
+### Setup Environment variables
 
 Always make sure your environment variables are set
 ```
