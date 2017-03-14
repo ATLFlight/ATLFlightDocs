@@ -93,7 +93,7 @@ The script will prompt you to optionally update the default installation path ${
 export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
 export HEXAGON_TOOLS_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
 export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
-export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
+export HEXAGON_ARM_SYSROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
 ```
 
 To prevent the path from having multiple versions of the ARM cross compiler path you can do:
