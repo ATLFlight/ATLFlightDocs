@@ -88,20 +88,24 @@ To install a stripped down version of the SDK use (for use in Docker image):
 ```
 
 ##### Setup Environment Variables
-The script will prompt you to optionally update the default installation path ${HEXAGON_INSTALL_HOME} and then set the following environment variables after the installation:
+The script will prompt you to optionally update the default installation path ${HEXAGON_INSTALL_HOME} and uses the following environment variables for the installation.
+Assuming you select the default install path of ${HOME} the environment settings would be:
 ```
+export ${HEXAGON_INSTALL_HOME}=${HOME}
 export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
 export HEXAGON_TOOLS_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
 export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
 export HEXAGON_ARM_SYSROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
 ```
 
-To prevent the path from having multiple versions of the ARM cross compiler path you can do:
+To prevent ${PATH} from having multiple versions of the ARM cross compiler path you can do:
 
 ```
 [ `echo PATH | grep gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin`' ] || \
  	export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
 ```
+
+Make sure these variables are set when building code using the Hexagon SDK and Hexagon Tools.
 
 ## All Done. What Next?
 
