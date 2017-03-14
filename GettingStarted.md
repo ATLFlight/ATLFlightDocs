@@ -12,7 +12,7 @@ The packages will be installed to ~/Qualcomm/...
 The top working dir is assumed to be the user home directory (~), and downloads are assumed to be in
 ~/Downloads for simplicity.
 
-#### 1. Install clang 3.4.2 or greater, and GCC 4.8 or greater
+#### 1. Install clang 3.4.2 or greater, and GCC 4.9 or greater
 
 ##### Ubuntu 14.04 to Ubuntu 16.04
 
@@ -80,9 +80,10 @@ cp ~/Downloads/{name of file downloaded, eg. qualcomm_hexagon_sdk_lnx_3_0_eval.b
 Now run the install script:
 ```
 cd cross_toolchain
-./installv3.sh
+./installsdk.sh --APQ8074 --arm-gcc
 ```
 
+##### Setup Environment Variables
 The script will prompt you to optionally update the default installation path ${HEXAGON_INSTALL_HOME} and then set the following environment variables after the installation:
 ```
 export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
@@ -111,29 +112,24 @@ export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
 unset HEXAGON_ARM_SYSROOT
 ./qrlinux_sysroot.sh
 ```
-Make sure to set the environment variable:
-```
-export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v3.1.1_sysroot
-```
+This will install the qrlSDK and fix current issues with the SDK:
 
-#### Alternatively Create the Stock Ubuntu Trusty (14.04) sysroot
+To use the sysroot you wiill need to set the environment variable:
+```
+export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
+```
+## All Done. What Next?
 
+### Setup Environmrnt variables
+
+Always make sure your environment variables are set
 ```
 export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
-unset HEXAGON_ARM_SYSROOT
-./trusty_sysroot.sh
+export HEXAGON_TOOLS_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
+export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
+export HEXAGON_ARM_SYSROOT=${HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
 ```
-This will install:
-
-ARMv7hf Ubuntu Trusty (14.04) sysroot [HEXAGON_ARM_SYSROOT]: ${HOME}/Qualcomm/ubuntu_14.04_armv7_sysroot
-
-Make sure to set the environment variable:
-```
-export HEXAGON_ARM_SYSROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/ubuntu_14.04_armv7_sysroot
-```
-If you need additional development packages you can edit trusty_sysroot.sh and add them to the EXTRA_PACKAGES line.
-
-## All Done. What Next?
+### Try building HelloWorld
 
 You have installed all the prerequisites to build code for the Hexagon DSP. Try the [HelloWorld](HelloWorld.md)
 program to test running a program on the DSP.
