@@ -94,15 +94,15 @@ Assuming you select the default install path of ${HOME} the environment settings
 export ${HEXAGON_INSTALL_HOME}=${HOME}
 export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
 export HEXAGON_TOOLS_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
-export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
+export PATH=${HEXAGON_INSTALL_HOME}/ARM_Tools/gcc-4.9-2014.11/bin:$PATH
 export HEXAGON_ARM_SYSROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
 ```
 
 To prevent ${PATH} from having multiple versions of the ARM cross compiler path you can do:
 
 ```
-[ `echo PATH | grep gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin`' ] || \
- 	export PATH=${HEXAGON_SDK_ROOT}/gcc-linaro-4.9-2014.11-x86_64_arm-linux-gnueabihf_linux/bin:$PATH
+[ `echo PATH | grep gcc-4.9-2014.11/bin`' ] || \
+ 	export PATH=${HEXAGON_INSTALL_HOME}/ARM_Tools/gcc-4.9-2014.11/bin:$PATH
 ```
 
 Make sure these variables are set when building code using the Hexagon SDK and Hexagon Tools.
