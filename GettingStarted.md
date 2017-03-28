@@ -96,15 +96,6 @@ export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
 export HEXAGON_TOOLS_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
 export HEXAGON_ARM_SYSROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
 export ARM_CROSS_GCC_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/ARM_Tools/gcc-4.9-2014.11
-export PATH=${ARM_CROSS_GCC_ROOT}/bin:$PATH
-
-```
-
-To prevent ${PATH} from having multiple versions of the ARM cross compiler path you can do:
-
-```
-[ `echo PATH | grep gcc-4.9-2014.11/bin`' ] || \
-	export PATH=${ARM_CROSS_GCC_ROOT}/bin:$PATH
 ```
 
 Make sure these variables are set when building code using the Hexagon SDK and Hexagon Tools.
