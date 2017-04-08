@@ -4,8 +4,8 @@ This page provides answers to common questions, solutions to common problems and
 1. [Host computer requirements](#host-computer-requirements)
 1. [Revive board that will not boot](#revive-board-that-will-not-boot)
 1. [Serial console adapter board](#serial-console-adapter-board)
-  1. [Older versions](#older-versions)
-  1. [Pin compatibility issues](#pin-compatibility-issues)
+   1. [Older versions](#older-versions)
+   1. [Pin compatibility issues](#pin-compatibility-issues)
 1. [apt-get does not work](#apt-get-does-not-work)
 1. [Install OpenCV](#install-opencv)
 1. [WiFi network connection](#wifi-network-connection)  
@@ -17,6 +17,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [Unable to flash platform BSP](#unable-to-flash-platform-bsp)
 1. [Debugging IMU issues](#debugging-imu-issues)
 1. [GPS support](#gps-support)
+1. [Build your own drone](#build-your-own-drone)
 
 ## Host computer requirements
 A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon Flight™ board (newer versions of the OS may work too but may not be tested / supported).
@@ -166,3 +167,6 @@ If the IMU_*.txt file was not created or the IMU data in it does not look correc
 
 ## GPS support
 The on-board GPS module on the Snapdragon Flight™ is *not* supported. Please check this page for other options: https://dev.px4.io/hardware-snapdragon.html
+
+## Build your own drone
+Please see [this document](https://support.intrinsyc.com/documents/162) for instructions on how to build your own UAV using the Snapdragon Flight™ board including components, assembly, programming and flying.
