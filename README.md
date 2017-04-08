@@ -6,21 +6,21 @@ These pages provide some information about the [Snapdragon Flight™](https://de
 
 1. [Snapdragon Flight User Guide](UserGuide.md)
 1. CPU / Applications Processor Development
-  1. [Getting Started (and Hello World)](AppsGettingStarted.md)
-  1. [Camera Programming](CameraProg.md)
-  1. [ROS Installation](SnapdragonROSInstallation.md)
-  1. GPU Programming
-  1. Video Encoder Programming
-  1. Debugging
+   1. [Getting Started (and Hello World)](AppsGettingStarted.md)
+   1. [Camera Programming](CameraProg.md)
+   1. [ROS Installation](SnapdragonROSInstallation.md)
+   1. GPU Programming
+   1. Video Encoder Programming
+   1. Debugging
 1. DSP development (Real-time I/O, Flight Control)
-  1. [Getting Started](GettingStarted.md)
-  1. [Hello World](HelloWorld.md)
-  1. [DSPAL](DSPAL.md) 
-  1. [DriverFramework](DriverFramework.md)
-  1. [PX4](PX4.md)
-  1. Debugging
+   1. [Getting Started](GettingStarted.md)
+   1. [Hello World](HelloWorld.md)
+   1. [DSPAL](DSPAL.md) 
+   1. [DriverFramework](DriverFramework.md)
+   1. [PX4](PX4.md)
+   1. Debugging
 1. Example applications
-  1. [VISLAM ROS example](https://github.com/ATLFlight/ros-examples)
+   1. [VISLAM ROS example](https://github.com/ATLFlight/ros-examples)
 1. [Troubleshooting and FAQ](TroubleshootFAQ.md)
 
 ## License
