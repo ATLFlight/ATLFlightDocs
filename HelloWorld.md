@@ -34,7 +34,7 @@ host%> make load-bundle
 Run mini-dm to see the output from the DSP
 
 ```
-host%> ${HEXAGON_SDK_ROOT}/tools/mini-dm/Linux_Debug/mini-dm
+host%> ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 ```
 
 Open an new shell and run the application on the target. Note that when using
@@ -43,7 +43,8 @@ helloworld library and the helloworld app, otherwise cmake is confused.
 
 ```
 host%> adb shell
-target#> /home/linaro/helloworld_app
+target#> /home/linaro/helloworld
+Asking DSP to say hello
 ```
 
 You should see the following output on the terminal running mini-dm:
