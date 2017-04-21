@@ -106,8 +106,8 @@ During boot time, the aDSP loads a BLSP configuration file to initialize the UAR
 The following is a sample blsp.config file showing the default board UART to BAM mapping:  
 ```
 tty-1 bam-9 2-wire  
-tty-2 bam-8 2-wire  
-tty-3 bam-6 2-wire  
+tty-2 bam-6 2-wire  
+tty-3 bam-8 2-wire  
 tty-4 bam-2 2-wire
 ```
 Each line begins with the UART device name "tty-[x]" where x is between 1 and 4 inclusive. The device name is followed by a space and bam-[y] where y is between 1 and 12 inclusive. To indicate that the UART should only use two wires, one to receive and the other to transmit, include the text "[2-wire]" at the end of the line.  
