@@ -6,7 +6,7 @@ This page provides information on setting up your environment to build and run c
 1. [SDK Installation](#sdk-installation)
 1. [Building and running sample app](#building-and-running-sample-app)
 1. [More information on environment setup](#more-information-on-environment-setup)
-  * [Shell limitation](#shell-limitation)
+   * [Shell limitation](#shell-limitation)
 1. [SDK capabilities and limitations](#sdk-capabilities-and-limitations)
 
 ## Introduction to SDK
