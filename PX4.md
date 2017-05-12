@@ -87,9 +87,9 @@ adb push ./posix-configs/eagle/200qx/mainapp.config /home/linaro/mainapp.config
 Install the PX4 binaries:
 ```
 cd Firmware
-adb push ./build_posix_eagle_legacy_driver_default/src/firmware/posix/px4 /home/linaro
-adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libpx4.so /usr/share/data/adsp
-adb push ./build_qurt_eagle_legacy_driver_default/src/firmware/qurt/libpx4muorb_skel.so /usr/share/data/adsp
+adb push ./build_posix_eagle_legacy/src/firmware/posix/px4 /home/linaro
+adb push ./build_qurt_eagle_legacy/src/firmware/qurt/libpx4.so /usr/share/data/adsp
+adb push ./build_qurt_eagle_legacy/src/firmware/qurt/libpx4muorb_skel.so /usr/share/data/adsp
 ```
 
 Install the aDSP static image and drivers from the Flight Controller AddOn by executing the install script provided in the addon:
