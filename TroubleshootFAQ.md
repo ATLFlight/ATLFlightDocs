@@ -18,7 +18,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [Debugging IMU issues](#debugging-imu-issues)
 1. [GPS support](#gps-support)
 1. [Build your own drone](#build-your-own-drone)
-
+1. [High network latency with PX4](#high-network-latency-with-px4)
 ## Host computer requirements
 A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon Flight™ board (newer versions of the OS may work too but may not be tested / supported).
 
@@ -151,4 +151,9 @@ If the IMU_*.txt file was not created or the IMU data in it does not look correc
 The on-board GPS module on the Snapdragon Flight™ is *not* supported. Please check this page for other options: https://dev.px4.io/hardware-snapdragon.html
 
 ## Build your own drone
-Please see [this document](https://support.intrinsyc.com/documents/162) for instructions on how to build your own UAV using the Snapdragon Flight™ board including components, assembly, programming and flying.
+- Please see [this document](https://support.intrinsyc.com/documents/162) for instructions on how to build your own UAV using the Snapdragon Flight™ board including components, assembly, programming and flying.
+- The PX4 community also recommends another airframe setup. Details are available here: https://dev.px4.io/en/flight_controller/snapdragon_flight.html
+
+## High network latency with PX4
+WiFi latency can increase to several seconds when PX4 flight stack is started. This could happen when MAVLink is running but QGroundControl is not. To fix this problem, start QGroundControl on the host PC or device that connects to the target.
+
