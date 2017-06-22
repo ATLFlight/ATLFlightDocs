@@ -106,6 +106,15 @@ It is recommended to install the following additional ROS packages.
   apt-get install ros-indigo-tf2-ros
   ```
 
+## Initialize ROSDEP
+Before you can use ROS, you will need to initialize rosdep. rosdep enables you to easily install system dependencies for source you want to compile and is required to run some core components in ROS.
+
+```
+adb shell
+sudo rosdep init
+rosdep update
+```
+
 ## Post installation clean-up
 
 After installing ROS, the OpenCL library gets installed by ROS as well which causes a conflict with camera pipeline.  To fix this, do the following:
