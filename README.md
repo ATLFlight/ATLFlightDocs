@@ -4,6 +4,7 @@ These pages provide some information about the [Snapdragon Flight™](https://de
 
 ## Table of Contents
 
+1. [Getting Started](PlatformGettingStarted.md)
 1. [User Guide](UserGuide.md)
 1. Developer Guide
    1. [Development Environment Setup](DevEnvSetup.md)
