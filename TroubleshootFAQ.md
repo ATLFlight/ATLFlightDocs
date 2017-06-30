@@ -19,6 +19,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [GPS support](#gps-support)
 1. [Build your own drone](#build-your-own-drone)
 1. [High network latency with PX4](#high-network-latency-with-px4)
+
 ## Host computer requirements
 A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon Flight™ board (newer versions of the OS may work too but may not be tested / supported).
 
@@ -119,6 +120,7 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
 ## Unable to flash platform BSP
 If you're unable to flash the platform BSP using the [intructions here](http://support.intrinsyc.com/projects/snapdragon-flight/wiki/Get_and_install_the_latest_platform_BSP), please try the following:
 - Execute the jflash script as root
+- If the Snapdragon Flight board is powered through the [Electronic Speed Controller (ESC) board](https://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board), the installation is known to sometimes fail. The workaround is to unplug the ESC board from the Snapdragon Flight board, and power the latter through the power adapter and 5V DC power supply that are available as part of the [Development kit](https://shop.intrinsyc.com/products/snapdragon-flight-dev-kit).
 
 ## Debugging IMU issues
 Do the following steps if you experience issues that may be due to IMU data. This is a test utility to verify that IMU data is being received correctly.
@@ -156,4 +158,3 @@ The on-board GPS module on the Snapdragon Flight™ is *not* supported. Please c
 
 ## High network latency with PX4
 WiFi latency can increase to several seconds when PX4 flight stack is started. This could happen when MAVLink is running but QGroundControl is not. To fix this problem, start QGroundControl on the host PC or device that connects to the target.
-

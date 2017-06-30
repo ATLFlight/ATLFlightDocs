@@ -4,7 +4,11 @@ These pages provide some information about the [Snapdragon Flight™](https://de
 
 ## Table of Contents
 
-1. [Snapdragon Flight User Guide](UserGuide.md)
+1. [User Guide](UserGuide.md)
+1. Developer Guide
+   1. [Development Environment Setup](DevEnvSetup.md)
+   1. [Machine Vision SDK](https://developer.qualcomm.com/hardware/snapdragon-flight/machine-vision-sdk)
+   1. [Snapdragon Navigator SDK](https://developer.qualcomm.com/hardware/snapdragon-flight/sd-navigator)
 1. CPU / Applications Processor Development
    1. [Getting Started (and Hello World)](AppsGettingStarted.md)
    1. [Camera Programming](CameraProg.md)
