@@ -19,6 +19,7 @@ This page provides answers to common questions, solutions to common problems and
 1. [GPS support](#gps-support)
 1. [Build your own drone](#build-your-own-drone)
 1. [High network latency with PX4](#high-network-latency-with-px4)
+1. [Enable root login](#enable-root-login)
 
 ## Host computer requirements
 A host PC running Ubuntu 14.04 Linux is recommended for building code, debugging and testing the Snapdragon Flight™ board (newer versions of the OS may work too but may not be tested / supported).
@@ -158,3 +159,23 @@ The on-board GPS module on the Snapdragon Flight™ is *not* supported. Please c
 
 ## High network latency with PX4
 WiFi latency can increase to several seconds when PX4 flight stack is started. This could happen when MAVLink is running but QGroundControl is not. To fix this problem, start QGroundControl on the host PC or device that connects to the target.
+
+## Enable root login
+Ensure that your board is in SoftAP Mode (See the Wi-Fi section in this [User Guide](http://support.intrinsyc.com/projects/snapdragon-flight/documents) for details).
+
+```
+# Set the root password on the board
+echo root:<password> | chpasswd
+
+# Backup the ssh configuration file
+cp -p /etc/ssh/sshd_config /etc/ssh/sshd_config.backup
+```
+
+Allow incoming SSH connections as root by editing the ```PermitRootLogin``` line in the file ```/etc/ssh/sshd_config``` as follows:  
+```PermitRootLogin yes```
+
+Reboot the target
+
+You should now be able to login to the target as follows:  
+```ssh root@<target-IP-address>```
+  - Enter the root password when prompted based on the value that you assigned earlier.
