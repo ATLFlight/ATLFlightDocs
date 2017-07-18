@@ -88,9 +88,12 @@ apt-get -o Dpkg::Options::="--force-overwrite" install libglib2.0-dev
 apt-get install --fix-missing libopencv-highgui-dev
 ```
 
-## WiFi network connection  
-To connect Snapdragon Flight board to a WiFi router on the network, please follow these instructions (see Station mode under Wifi-settings):  
-http://dev.px4.io/advanced-snapdragon.html
+## WiFi network connection
+### Connection setup
+To connect Snapdragon Flight board to a WiFi router on the network, please follow these instructions (see Station mode under Wifi-settings): http://dev.px4.io/advanced-snapdragon.html
+
+### Antenna
+A WiFi antenna is NOT included in the kit. It needs be purchased (ex. [Molex part# 146153-0150](http://www.molex.com/molex/products/datasheet.jsp?part=active/1461530150_ANTENNAS.xml)) and installed. See [here](UserGuide.md#wifi-control) for installation and setup.
 
 ## Wired ethernet connection  
 The board can be connected to the network over a wired connection via the OTG USB port by using a USB Ethernet adapter (such as http://www.apple.com/shop/product/MC704LL/A/apple-usb-ethernet-adapter OR Linksys USB 3.0 Gigabit Ethernet Adapter - model USB3GIGV1) along with a USB 2.0 Female to Micro USB Male OTG adapter (such as http://www.rakuten.com/prod/268480078.html).
