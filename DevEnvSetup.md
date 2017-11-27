@@ -20,7 +20,7 @@ At the end of the installation, the script will display instructions to set your
 Below is an example. Actual values to be used based on the instructions displayed by the installation script.
 
 ```
-export ${HEXAGON_INSTALL_HOME}=${HOME}
+export HEXAGON_INSTALL_HOME=${HOME}
 export HEXAGON_SDK_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/Hexagon_SDK/3.0
 export HEXAGON_TOOLS_ROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/HEXAGON_Tools/7.2.12/Tools
 export HEXAGON_ARM_SYSROOT=${HEXAGON_INSTALL_HOME}/Qualcomm/qrlinux_v4_sysroot/merged-rootfs
