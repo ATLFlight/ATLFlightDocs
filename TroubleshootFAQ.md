@@ -157,7 +157,7 @@ If the IMU_*.txt file was not created or the IMU data in it does not look correc
 The on-board GPS module on the Snapdragon Flight™ is *not* supported. Please check this page for other options: https://dev.px4.io/hardware-snapdragon.html
 
 ## Build your own drone
-An almost ready-to-fly drone kit compatible with Snapdragon Flight™ and [Snapdragon Navigator](https://developer.qualcomm.com/hardware/snapdragon-flight/sd-navigator)™ called the [Dragon Drone Development Kit](https://worldsway.com/product/dragon-drone-development-kit) is now available. See [this post](https://developer.qualcomm.com/forum/qdn-forums/hardware/snapdragon-flight/34688) for more information.  
+An almost ready-to-fly drone kit compatible with Snapdragon Flight™ and [Snapdragon Navigator](https://developer.qualcomm.com/hardware/snapdragon-flight/sd-navigator)™ called the [Dragon Drone Development Kit](https://worldsway.com/product/dragon-drone-development-kit) is now available. See [this post](https://developer.qualcomm.com/forum/qdn-forums/hardware/snapdragon-flight/34688) for more information. This is the *recommended* option.
 
 Other options are as follows:
 - Please see [this document](https://support.intrinsyc.com/documents/162) for instructions on how to build your own UAV using the Snapdragon Flight™ board including components, assembly, programming and flying.
