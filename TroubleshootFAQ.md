@@ -67,7 +67,7 @@ Pin 3 (RXD) Yellow
 Pin 4 (GND) Black
 
 ## apt-get does not work  
-Ensure that the Snapdragon Flight board is configured in [Station mode](http://dev.px4.io/advanced-snapdragon.html#station-mode) and connected to the Internet: 
+Ensure that the Snapdragon Flight board is configured in [Station mode](https://docs.px4.io/en/flight_controller/snapdragon_flight_advanced.html) and connected to the Internet: 
 
 apt-get on Snapdragon Flight is broken. We need the following work-around to install packages:
 
@@ -90,7 +90,7 @@ apt-get install --fix-missing libopencv-highgui-dev
 
 ## WiFi network connection
 ### Connection setup
-To connect Snapdragon Flight board to a WiFi router on the network, please follow these instructions (see Station mode under Wifi-settings): http://dev.px4.io/advanced-snapdragon.html
+To connect Snapdragon Flight board to a WiFi router on the network, please follow these instructions (see Station mode under Wifi-settings): https://docs.px4.io/en/flight_controller/snapdragon_flight_advanced.html
 
 ### Antenna
 A WiFi antenna is NOT included in the kit. It needs be purchased (ex. [Molex part# 146153-0150](http://www.molex.com/molex/products/datasheet.jsp?part=active/1461530150_ANTENNAS.xml)) and installed. See [here](UserGuide.md#wifi-control) for installation and setup.
