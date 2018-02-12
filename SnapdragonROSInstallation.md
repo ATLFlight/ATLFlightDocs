@@ -32,7 +32,7 @@ source /home/linaro/.bashrc
 
 # Install ROS on Snapdragon Flight<sup>TM</sup> platform.
 
-This installation step requires the Snapdragon Flight<sup>TM</sup> board to be in **station mode** with internet connection. See instructions [here](http://dev.px4.io/advanced-snapdragon.html#wifi-settings) to set the board in **station mode** and connect it to your WiFi network.
+This installation step requires the Snapdragon Flight<sup>TM</sup> board to be in **station mode** with internet connection. See instructions [here](https://docs.px4.io/en/flight_controller/snapdragon_flight_advanced.html#wifi-settings) to set the board in **station mode** and connect it to your WiFi network.
 
 **NOTE** Due to an unmet package dependency for *fastcv-internal* on target, the installation of any deb package using apt-get will fail.  To resolve this, do the following:
 
