@@ -22,7 +22,7 @@ chmod +rw /home/linaro
 echo "export HOME=/home/linaro/" >> /home/linaro/.bashrc
 ```
 
-If you use SSH, the home environment variable should be set correct after the above step. 
+If you use SSH, the home environment variable should be set correct after the above step.
 If you use ADB, do the following for each session:
 
 ```
@@ -75,6 +75,20 @@ This will prompt you to uninstall the **fastcv-internal** package.  Type "Y" to 
   adb shell
   sudo apt-get update
   sudo apt-get install ros-indigo-ros-base
+  ```
+
+  **NOTE**: If the installation fails with this message:
+
+  ```
+  Errors were encountered while processing:
+   /var/cache/apt/archives/fontconfig-config_2.11.0-0ubuntu4_all.deb
+  E: Sub-process /usr/bin/dpkg returned an error code (1)
+  ```
+
+  try running the following command:
+
+  ```
+  sudo apt-get -f -o Dpkg::Options::="--force-overwrite" install
   ```
 
   **NOTE**: If the installation fails with this message:
