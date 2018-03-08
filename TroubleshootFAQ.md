@@ -88,6 +88,8 @@ apt-get -o Dpkg::Options::="--force-overwrite" install libglib2.0-dev
 apt-get install --fix-missing libopencv-highgui-dev
 ```
 
+Also please see this post: https://developer.qualcomm.com/forum/qdn-forums/hardware/snapdragon-flight/32904
+
 ## WiFi network connection
 ### Connection setup
 To connect Snapdragon Flight board to a WiFi router on the network, please follow these instructions (see Station mode under Wifi-settings): https://docs.px4.io/en/flight_controller/snapdragon_flight_advanced.html
