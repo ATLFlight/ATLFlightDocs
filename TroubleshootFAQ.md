@@ -120,6 +120,7 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
   - Do ```lsusb``` on the host PC after the Snapdragon Flight board is connected and powered up. You must see an entry for the target (usually listed as ```Qualcomm, Inc. Qualcomm HSUSB Device```).
   - Do ```adb kill-server``` and then ```adb start-server``` and try again?
   - If none of this works, verify that adb is functional on your host computer by connecting a phone or other device.
+  - Try replacing the cable. Sometimes the microUSB 3.0 cable does not work, and you might need a microUSB 2.0 cable.
 
 ## Unable to flash platform BSP
 If you're unable to flash the platform BSP using the [intructions here](http://support.intrinsyc.com/projects/snapdragon-flight/wiki/Get_and_install_the_latest_platform_BSP), please try the following:
