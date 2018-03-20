@@ -157,5 +157,6 @@ The following are not functional:
 ## More Information
 - Running the DSP debug monitor (mini-dm logging tool): https://dev.px4.io/en/debug/system_console.html
 - Setting up auto-start of mainapp upon boot up: https://dev.px4.io/en/setup/building_px4.html#qurt--snapdragon-based-boards
+- Troubleshooting: https://docs.px4.io/en/flight_controller/snapdragon_flight_advanced.html
 - PX4 User Guide: https://docs.px4.io/en
 - PX4 Developer Guide: https://dev.px4.io/en
