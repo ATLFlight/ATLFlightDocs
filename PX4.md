@@ -40,14 +40,14 @@ Following these instructions to build the PX4 flight code for Snapdragon Flight 
 
 ### Host Setup
 
-Follow the instructions [here](https://github.com/ATLFlight/ATLFlightDocs) to install the tools, setup the environment variables.
+Follow the instructions [here](https://github.com/ATLFlight/ATLFlightDocs/blob/master/DevEnvSetup.md) to install the tools, setup the environment variables.
 
 Obtain the Flight Controller AddOn file (\*\_qcom_flight_controller\_\*.zip). The latest version is available from the [Intrinsyc support website](http://support.intrinsyc.com/projects/snapdragon-flight/files). Download and extract it to any location on your linux PC. The environment variable FC_ADDON needs to point to the location of the extracted Snapdragon Flight Controller addon.
 
 To use these with PX4, do the following:
 
 ```
-git clone https://github.com/ATLFlight/Firmware
+git clone https://github.com/PX4/Firmware
 cd Firmware
 git checkout tags/<stable_release_tag_name>
 git submodule update --init --recursive
@@ -87,12 +87,12 @@ adb push ./posix-configs/eagle/200qx/mainapp.config /home/linaro/mainapp.config
 Install the PX4 binaries:
 ```
 cd Firmware
-adb push ./build_posix_eagle_legacy/src/firmware/posix/px4 /home/linaro
-adb push ./build_qurt_eagle_legacy/src/firmware/qurt/libpx4.so /usr/share/data/adsp
-adb push ./build_qurt_eagle_legacy/src/firmware/qurt/libpx4muorb_skel.so /usr/share/data/adsp
+adb push ./build/posix_eagle_legacy/px4 /home/linaro
+adb push ./build/qurt_eagle_legacy/platforms/qurt/libpx4.so /usr/share/data/adsp
+adb push ./build/qurt_eagle_legacy/platforms/qurt/libpx4muorb_skel.so /usr/share/data/adsp
 ```
 
-Install the aDSP static image and drivers from the Flight Controller AddOn by executing the install script provided in the addon:
+If not already done, install the aDSP static image and drivers from the Flight Controller AddOn by executing the install script provided in the addon:
 ```
 installfcaddon.sh <from Linux>
 <or>
@@ -104,13 +104,13 @@ installfcaddon.bat <from Windows>
 
 Connect to the target via SSH (recommended) or ADB. 
 
-Remove the following files (that may have been created from a previous run)
+Optionally, remove the following files (that may have been created from a previous run)
 ```
 sudo su
 cd /home/linaro
-rm ROMFS 
-rm posix-configs 
-rm test_data 
+rm -rf log
+rm -rf dataman
+rm -rf rootfs 
 ```
 
 Start the PX4 flight software as follows:
@@ -135,8 +135,11 @@ Following are the git tags corresponding to stable releases:
 - EAGLE_DRONES_1.2_FC_0 (September 8, 2016)
 - EAGLE_DRONE_1.2_CS_0 (November 11, 2016)
 - EAGLE_DRONE_ECO_3.1.3 (May 5, 2017)
+- v1.7.3 (January 6, 2018)
 
-NOTE: The latest tag above is compatible/tested with platform software version 3.1.3_BSP and flight controller addon version 3.1.3 available from Intrinsyc [here](http://support.intrinsyc.com/projects/snapdragon-flight/files). Follow the instructions in the readme file therein to complete the installation.
+NOTE:
+- The latest tag above is compatible/tested with platform software version 3.1.3.1 and flight controller addon version 3.1.3.1 available from Intrinsyc [here](http://support.intrinsyc.com/projects/snapdragon-flight/files). Follow the [instructions](https://support.intrinsyc.com/projects/snapdragon-flight/wiki/Get_and_install_the_latest_platform_BSP) therein to complete the installation.
+- Later releases at https://github.com/PX4/Firmware/releases MAY work too but have not been tested.
 
 ## Known Issues and Limitations
 
@@ -152,8 +155,7 @@ The following are not functional:
 - HITL / HIL mode
 
 ## More Information
-- Running the mini-dm logging tool: http://dev.px4.io/starting-building.html#run-it
-- Setting up auto-start of mainapp upon boot up: http://dev.px4.io/starting-building.html#auto-start-px4
-- Troubleshooting: http://dev.px4.io/advanced-snapdragon.html
-- PX4 User Guide: http://px4.io/user-guide
-- PX4 Developer Guide: http://dev.px4.io
+- Running the DSP debug monitor (mini-dm logging tool): https://dev.px4.io/en/debug/system_console.html
+- Setting up auto-start of mainapp upon boot up: https://dev.px4.io/en/setup/building_px4.html#qurt--snapdragon-based-boards
+- PX4 User Guide: https://docs.px4.io/en
+- PX4 Developer Guide: https://dev.px4.io/en
