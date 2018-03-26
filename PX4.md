@@ -9,7 +9,6 @@ This document describes the build and execution procedure for PX4 flight softwar
   1. [Building the Code](#building-the-code)
   1. [Installation on Target](#installation-on-target)
   1. [Execution](#execution)
-1. [Stable Releases](#stable-releases)
 1. [Known Issues and Limitations](#known-issues-and-limitations)
 1. [More Information](#more-information)
 
@@ -49,11 +48,14 @@ To use these with PX4, do the following:
 ```
 git clone https://github.com/PX4/Firmware
 cd Firmware
-git checkout tags/<stable_release_tag_name>
+git checkout tags/v1.7.3
 git submodule update --init --recursive
 export FC_ADDON=<location-of-extracted-flight-controller-addon>
 ```
-*NOTE:* Substitute \<stable_release_tag_name\> with the latest tag from the [Stable Releases](#stable-releases) section on this page.
+
+*NOTE:*
+- The above git tag is compatible/was tested with platform software version 3.1.3.1 and flight controller addon version 3.1.3.1 available from Intrinsyc [here](http://support.intrinsyc.com/projects/snapdragon-flight/files). Follow the [instructions](https://support.intrinsyc.com/projects/snapdragon-flight/wiki/Get_and_install_the_latest_platform_BSP) therein to complete the installation.
+- Later releases at https://github.com/PX4/Firmware/releases MAY work too but have not been tested.
 
 ### Building the Code
 The commands below build the targets for the DSP and the Linux side. Both executables communicate via muORB.
@@ -97,11 +99,9 @@ If not already done, install the aDSP static image and drivers from the Flight C
 installfcaddon.sh <from Linux>
 <or>
 installfcaddon.bat <from Windows>
-
 ```
 
-## Execution
-
+## Execution  
 Connect to the target via SSH (recommended) or ADB. 
 
 Optionally, remove the following files (that may have been created from a previous run)
@@ -126,20 +126,6 @@ To stop the flight stack and exit gracefully, run the following commands in the 
 muorb stop
 shutdown
 ```
-
-## Stable Releases
-Following are the git tags corresponding to stable releases:
-- EAGLE_DRONE_1.1_PCS_0 (June 6, 2016)
-- EAGLE_DRONE_1.1_PCS_1 (June 28, 2016)
-- EAGLE_DRONE_1.2_ES2_0 (July 12, 2016)
-- EAGLE_DRONES_1.2_FC_0 (September 8, 2016)
-- EAGLE_DRONE_1.2_CS_0 (November 11, 2016)
-- EAGLE_DRONE_ECO_3.1.3 (May 5, 2017)
-- v1.7.3 (January 6, 2018)
-
-NOTE:
-- The latest tag above is compatible/tested with platform software version 3.1.3.1 and flight controller addon version 3.1.3.1 available from Intrinsyc [here](http://support.intrinsyc.com/projects/snapdragon-flight/files). Follow the [instructions](https://support.intrinsyc.com/projects/snapdragon-flight/wiki/Get_and_install_the_latest_platform_BSP) therein to complete the installation.
-- Later releases at https://github.com/PX4/Firmware/releases MAY work too but have not been tested.
 
 ## Known Issues and Limitations
 
